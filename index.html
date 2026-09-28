@@ -1,683 +1,691 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>امتحان الشامل - الباب الأول كيمياء (العناصر الانتقالية)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; font-family: 'Tajawal', sans-serif; margin: 0; padding: 0; user-select: none; -webkit-user-select: none; }
-        
-        body { 
-            background: #061e14; 
-            color: #f8fafc; 
-            min-height: 100vh; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            padding: 15px; 
-            position: relative; 
-            overflow-x: hidden;
-            transition: filter 0.3s ease;
-        }
-        
-        body.blurred {
-            filter: blur(15px) grayscale(80%);
-            pointer-events: none;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>امتحان الشامل - الباب الأول كيمياء (العناصر الانتقالية)</title>
+ <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+ <style>
+ * { box-sizing: border-box; font-family: 'Tajawal', sans-serif; margin: 0; padding: 0; user-select: none; -webkit-user-select: none; }
+ 
+ body { 
+ background: #061e14; 
+ color: #f8fafc; 
+ min-height: 100vh; 
+ display: flex; 
+ justify-content: center; 
+ align-items: center; 
+ padding: 15px; 
+ position: relative; 
+ overflow-x: hidden;
+ transition: filter 0.3s ease;
+ }
+ 
+ .container.blurred {
+ filter: blur(15px) grayscale(80%);
+ pointer-events: none;
+ }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.25) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(5, 150, 105, 0.2) 0%, transparent 50%);
-            filter: blur(40px);
-            z-index: 0;
-        }
+ body::before {
+ content: "";
+ position: fixed;
+ top: 0; left: 0; right: 0; bottom: 0;
+ background: radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.25) 0%, transparent 50%),
+ radial-gradient(circle at 80% 80%, rgba(5, 150, 105, 0.2) 0%, transparent 50%);
+ filter: blur(40px);
+ z-index: 0;
+ }
 
-        .global-watermark { 
-            position: fixed; 
-            top: 50%; left: 50%; 
-            transform: translate(-50%, -50%) rotate(-25deg); 
-            font-size: 3.5rem; 
-            font-weight: 900; 
-            color: rgba(16, 185, 129, 0.04); 
-            white-space: nowrap; 
-            pointer-events: none; 
-            z-index: 1; 
-        }
+ .global-watermark { 
+ position: fixed; 
+ top: 50%; left: 50%; 
+ transform: translate(-50%, -50%) rotate(-25deg); 
+ font-size: 3.5rem; 
+ font-weight: 900; 
+ color: rgba(16, 185, 129, 0.04); 
+ white-space: nowrap; 
+ pointer-events: none; 
+ z-index: 1; 
+ }
 
-        .container { 
-            width: 100%; 
-            max-width: 780px; 
-            background: rgba(15, 35, 25, 0.85); 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px; 
-            padding: 28px; 
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6); 
-            border: 1px solid rgba(52, 211, 153, 0.2); 
-            position: relative; 
-            z-index: 2; 
-        }
+ .container { 
+ width: 100%; 
+ max-width: 780px; 
+ background: rgba(15, 35, 25, 0.85); 
+ backdrop-filter: blur(20px);
+ -webkit-backdrop-filter: blur(20px);
+ border-radius: 24px; 
+ padding: 28px; 
+ box-shadow: 0 25px 60px rgba(0,0,0,0.6); 
+ border: 1px solid rgba(52, 211, 153, 0.2); 
+ position: relative; 
+ z-index: 2; 
+ transition: filter 0.3s ease;
+ }
 
-        .header-title { 
-            text-align: center; 
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.35)); 
-            border: 1px solid rgba(52, 211, 153, 0.4);
-            color: #ffffff; 
-            padding: 20px; 
-            border-radius: 20px; 
-            font-size: 1.3rem; 
-            font-weight: 800; 
-            margin-bottom: 22px; 
-            line-height: 1.6; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
+ .header-title { 
+ text-align: center; 
+ background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.35)); 
+ border: 1px solid rgba(52, 211, 153, 0.4);
+ color: #ffffff; 
+ padding: 20px; 
+ border-radius: 20px; 
+ font-size: 1.3rem; 
+ font-weight: 800; 
+ margin-bottom: 22px; 
+ line-height: 1.6; 
+ box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+ }
 
-        .green-badge {
-            background: #10b981;
-            color: #042f2e;
-            padding: 4px 12px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 6px;
-        }
-        
-        #login-section { display: flex; flex-direction: column; gap: 16px; }
-        .form-group { display: flex; flex-direction: column; gap: 8px; text-align: right; }
-        .form-group label { font-size: 0.95rem; color: #34d399; font-weight: 700; }
-        .form-control { 
-            background-color: rgba(6, 30, 20, 0.7); 
-            border: 1px solid rgba(52, 211, 153, 0.2); 
-            border-radius: 14px; 
-            padding: 14px 18px; 
-            color: #f8fafc; 
-            font-size: 1rem; 
-            outline: none; 
-            transition: 0.3s;
-        }
-        .form-control:focus { border-color: #10b981; box-shadow: 0 0 15px rgba(16, 185, 129, 0.3); }
-        
-        .btn-start { 
-            background: linear-gradient(135deg, #10b981, #059669); 
-            color: white; 
-            padding: 16px; 
-            border: none; 
-            border-radius: 14px; 
-            font-size: 1.15rem; 
-            font-weight: 800; 
-            cursor: pointer; 
-            margin-top: 12px; 
-            transition: 0.3s; 
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
-        }
-        .btn-start:hover { transform: translateY(-2px); background: linear-gradient(135deg, #34d399, #10b981); }
+ .green-badge {
+ background: #10b981;
+ color: #042f2e;
+ padding: 4px 12px;
+ border-radius: 8px;
+ font-size: 0.85rem;
+ font-weight: bold;
+ display: inline-block;
+ margin-top: 6px;
+ }
+ 
+ #login-section { display: flex; flex-direction: column; gap: 16px; }
+ .form-group { display: flex; flex-direction: column; gap: 8px; text-align: right; }
+ .form-group label { font-size: 0.95rem; color: #34d399; font-weight: 700; }
+ .form-control { 
+ background-color: rgba(6, 30, 20, 0.7); 
+ border: 1px solid rgba(52, 211, 153, 0.2); 
+ border-radius: 14px; 
+ padding: 14px 18px; 
+ color: #f8fafc; 
+ font-size: 1rem; 
+ outline: none; 
+ transition: 0.3s;
+ }
+ .form-control:focus { border-color: #10b981; box-shadow: 0 0 15px rgba(16, 185, 129, 0.3); }
+ 
+ .btn-start { 
+ background: linear-gradient(135deg, #10b981, #059669); 
+ color: white; 
+ padding: 16px; 
+ border: none; 
+ border-radius: 14px; 
+ font-size: 1.15rem; 
+ font-weight: 800; 
+ cursor: pointer; 
+ margin-top: 12px; 
+ transition: 0.3s; 
+ box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+ }
+ .btn-start:hover { transform: translateY(-2px); background: linear-gradient(135deg, #34d399, #10b981); }
 
-        #exam-section { display: none; }
-        .teacher-tag { 
-            background: rgba(16, 185, 129, 0.15); 
-            border: 1px solid rgba(52, 211, 153, 0.3); 
-            border-radius: 12px; 
-            padding: 8px 16px; 
-            color: #34d399; 
-            font-size: 0.9rem; 
-            font-weight: bold; 
-            text-align: center; 
-            margin-bottom: 15px; 
-        }
-        .status-panel { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        
-        .timer-badge { 
-            background: rgba(245, 158, 11, 0.15); 
-            color: #fbbf24; 
-            padding: 8px 16px; 
-            border-radius: 12px; 
-            font-size: 1.05rem; 
-            font-weight: bold; 
-            font-family: monospace; 
-            border: 1px solid rgba(245, 158, 11, 0.3); 
-        }
-        .user-badge { color: #34d399; font-weight: 700; font-size: 0.95rem; }
+ #exam-section { display: none; }
+ .teacher-tag { 
+ background: rgba(16, 185, 129, 0.15); 
+ border: 1px solid rgba(52, 211, 153, 0.3); 
+ border-radius: 12px; 
+ padding: 8px 16px; 
+ color: #34d399; 
+ font-size: 0.9rem; 
+ font-weight: bold; 
+ text-align: center; 
+ margin-bottom: 15px; 
+ }
+ .status-panel { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+ 
+ .timer-badge { 
+ background: rgba(245, 158, 11, 0.15); 
+ color: #fbbf24; 
+ padding: 8px 16px; 
+ border-radius: 12px; 
+ font-size: 1.05rem; 
+ font-weight: bold; 
+ font-family: monospace; 
+ border: 1px solid rgba(245, 158, 11, 0.3); 
+ }
+ .user-badge { color: #34d399; font-weight: 700; font-size: 0.95rem; }
 
-        .question-grid { 
-            display: grid; 
-            grid-template-columns: repeat(10, 1fr); 
-            gap: 6px; 
-            margin-bottom: 18px; 
-            background-color: rgba(6, 30, 20, 0.6); 
-            padding: 10px; 
-            border-radius: 14px; 
-            border: 1px solid rgba(52, 211, 153, 0.15); 
-            max-height: 140px; 
-            overflow-y: auto; 
-        }
-        .grid-btn { 
-            background-color: rgba(15, 35, 25, 0.8); 
-            color: #94a3b8; 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-            border-radius: 8px; 
-            padding: 7px 0; 
-            font-size: 0.85rem; 
-            cursor: pointer; 
-            text-align: center; 
-            font-weight: bold; 
-            transition: 0.2s;
-        }
-        .grid-btn.active { background-color: #10b981; color: #042f2e; font-weight: 900; border-color: #34d399; }
-        .grid-btn.answered { border-color: #34d399; color: #34d399; background: rgba(52, 211, 153, 0.15); }
+ .question-grid { 
+ display: grid; 
+ grid-template-columns: repeat(10, 1fr); 
+ gap: 6px; 
+ margin-bottom: 18px; 
+ background-color: rgba(6, 30, 20, 0.6); 
+ padding: 10px; 
+ border-radius: 14px; 
+ border: 1px solid rgba(52, 211, 153, 0.15); 
+ max-height: 140px; 
+ overflow-y: auto; 
+ }
+ .grid-btn { 
+ background-color: rgba(15, 35, 25, 0.8); 
+ color: #94a3b8; 
+ border: 1px solid rgba(255, 255, 255, 0.08); 
+ border-radius: 8px; 
+ padding: 7px 0; 
+ font-size: 0.85rem; 
+ cursor: pointer; 
+ text-align: center; 
+ font-weight: bold; 
+ transition: 0.2s;
+ }
+ .grid-btn.active { background-color: #10b981; color: #042f2e; font-weight: 900; border-color: #34d399; }
+ .grid-btn.answered { border-color: #34d399; color: #34d399; background: rgba(52, 211, 153, 0.15); }
 
-        .question-card { 
-            background-color: rgba(6, 30, 20, 0.75); 
-            border-radius: 18px; 
-            padding: 22px; 
-            border: 1px solid rgba(52, 211, 153, 0.2); 
-            margin-bottom: 18px; 
-            position: relative; 
-        }
-        .question-content { text-align: right; }
-        .question-header { display: flex; justify-content: space-between; color: #34d399; font-size: 0.9rem; margin-bottom: 12px; font-weight: 700; }
-        .question-text { font-size: 1.05rem; line-height: 1.7; color: #f1f5f9; margin-bottom: 16px; font-weight: 600; }
-        
-        .diagram-container {
-            text-align: center;
-            margin: 15px 0;
-            padding: 15px;
-            background: rgba(15, 35, 25, 0.9);
-            border-radius: 14px;
-            border: 1px dashed rgba(52, 211, 153, 0.4);
-        }
-        .diagram-container svg {
-            max-width: 100%;
-            height: auto;
-        }
+ .question-card { 
+ background-color: rgba(6, 30, 20, 0.75); 
+ border-radius: 18px; 
+ padding: 22px; 
+ border: 1px solid rgba(52, 211, 153, 0.2); 
+ margin-bottom: 18px; 
+ position: relative; 
+ }
+ .question-content { text-align: right; }
+ .question-header { display: flex; justify-content: space-between; color: #34d399; font-size: 0.9rem; margin-bottom: 12px; font-weight: 700; }
+ .question-text { font-size: 1.05rem; line-height: 1.7; color: #f1f5f9; margin-bottom: 16px; font-weight: 600; }
+ 
+ .diagram-container {
+ text-align: center;
+ margin: 15px 0;
+ padding: 15px;
+ background: rgba(15, 35, 25, 0.9);
+ border-radius: 14px;
+ border: 1px dashed rgba(52, 211, 153, 0.4);
+ }
+ .diagram-container svg {
+ max-width: 100%;
+ height: auto;
+ }
 
-        .options-list { display: flex; flex-direction: column; gap: 10px; }
-        .option-item { 
-            background-color: rgba(15, 35, 25, 0.7); 
-            border: 1px solid rgba(52, 211, 153, 0.15); 
-            border-radius: 14px; 
-            padding: 14px 18px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            cursor: pointer; 
-            color: #e2e8f0; 
-            font-size: 0.98rem; 
-            transition: 0.2s; 
-        }
-        .option-item:hover { border-color: #34d399; background: rgba(16, 185, 129, 0.1); }
-        .option-item.selected { 
-            border-color: #34d399; 
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(5, 150, 105, 0.4)); 
-            color: white; 
-            font-weight: bold; 
-        }
+ .options-list { display: flex; flex-direction: column; gap: 10px; }
+ .option-item { 
+ background-color: rgba(15, 35, 25, 0.7); 
+ border: 1px solid rgba(52, 211, 153, 0.15); 
+ border-radius: 14px; 
+ padding: 14px 18px; 
+ display: flex; 
+ justify-content: space-between; 
+ align-items: center; 
+ cursor: pointer; 
+ color: #e2e8f0; 
+ font-size: 0.98rem; 
+ transition: 0.2s; 
+ }
+ .option-item:hover { border-color: #34d399; background: rgba(16, 185, 129, 0.1); }
+ .option-item.selected { 
+ border-color: #34d399; 
+ background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(5, 150, 105, 0.4)); 
+ color: white; 
+ font-weight: bold; 
+ }
 
-        .action-buttons { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 10px; margin-top: 15px; }
-        .btn { padding: 14px; border-radius: 14px; border: none; font-weight: bold; cursor: pointer; font-size: 0.95rem; text-align: center; }
-        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
-        .btn-prev, .btn-next { background-color: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); }
-        .btn-submit { background: linear-gradient(135deg, #10b981, #059669); color: white; }
+ .action-buttons { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 10px; margin-top: 15px; }
+ .btn { padding: 14px; border-radius: 14px; border: none; font-weight: bold; cursor: pointer; font-size: 0.95rem; text-align: center; }
+ .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+ .btn-prev, .btn-next { background-color: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); }
+ .btn-submit { background: linear-gradient(135deg, #10b981, #059669); color: white; }
 
-        #result-section { display: none; text-align: center; }
-        .result-title { font-size: 1.4rem; color: #34d399; margin-bottom: 10px; font-weight: 800; }
-        
-        .certificate-card {
-            background: linear-gradient(135deg, #062e1e, #031a11);
-            border: 3px double #fbbf24;
-            border-radius: 20px;
-            padding: 25px;
-            margin: 20px 0;
-            position: relative;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            text-align: center;
-        }
-        .cert-header { font-family: 'Reem Kufi', sans-serif; color: #fbbf24; font-size: 1.6rem; margin-bottom: 6px; }
-        .cert-sub { color: #34d399; font-size: 0.9rem; margin-bottom: 16px; font-weight: bold; }
-        .cert-name { font-size: 1.5rem; color: #38bdf8; font-weight: bold; margin: 12px 0; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 8px; }
-        .cert-body { font-size: 1rem; line-height: 1.9; color: #f1f5f9; }
-        .cert-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: #94a3b8; }
+ #result-section { display: none; text-align: center; }
+ .result-title { font-size: 1.4rem; color: #34d399; margin-bottom: 10px; font-weight: 800; }
+ 
+ .certificate-card {
+ background: linear-gradient(135deg, #062e1e, #031a11);
+ border: 3px double #fbbf24;
+ border-radius: 20px;
+ padding: 25px;
+ margin: 20px 0;
+ position: relative;
+ box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+ text-align: center;
+ }
+ .cert-header { font-family: 'Reem Kufi', sans-serif; color: #fbbf24; font-size: 1.6rem; margin-bottom: 6px; }
+ .cert-sub { color: #34d399; font-size: 0.9rem; margin-bottom: 16px; font-weight: bold; }
+ .cert-name { font-size: 1.5rem; color: #38bdf8; font-weight: bold; margin: 12px 0; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 8px; }
+ .cert-body { font-size: 1rem; line-height: 1.9; color: #f1f5f9; }
+ .cert-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: #94a3b8; }
 
-        .review-box { text-align: right; margin-top: 22px; background: rgba(6, 30, 20, 0.8); padding: 18px; border-radius: 16px; border: 1px solid rgba(52, 211, 153, 0.2); }
-        .review-title { color: #f43f5e; font-weight: bold; margin-bottom: 12px; font-size: 1.05rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; }
-        .review-item { background: rgba(15, 35, 25, 0.7); padding: 12px; border-radius: 10px; margin-bottom: 10px; border-right: 4px solid #f43f5e; font-size: 0.9rem; line-height: 1.6; }
-        .correct-ans { color: #34d399; font-weight: bold; }
-        .user-ans { color: #f43f5e; font-weight: bold; }
+ .review-box { text-align: right; margin-top: 22px; background: rgba(6, 30, 20, 0.8); padding: 18px; border-radius: 16px; border: 1px solid rgba(52, 211, 153, 0.2); }
+ .review-title { color: #f43f5e; font-weight: bold; margin-bottom: 12px; font-size: 1.05rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; }
+ .review-item { background: rgba(15, 35, 25, 0.7); padding: 12px; border-radius: 10px; margin-bottom: 10px; border-right: 4px solid #f43f5e; font-size: 0.9rem; line-height: 1.6; }
+ .correct-ans { color: #34d399; font-weight: bold; }
+ .user-ans { color: #f43f5e; font-weight: bold; }
 
-        #warning-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.85);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            padding: 20px;
-        }
-        .modal-card {
-            background: #0f2d21;
-            border: 2px solid #ef4444;
-            padding: 30px;
-            border-radius: 20px;
-            max-width: 450px;
-            box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
-        }
-        .modal-card h2 { color: #ef4444; font-size: 1.4rem; margin-bottom: 12px; }
-        .modal-card p { color: #f8fafc; font-size: 1rem; margin-bottom: 20px; line-height: 1.6; }
-        .modal-btn { background: #ef4444; color: white; border: none; padding: 12px 24px; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 1rem; }
+ /* نافذة التحذير قابلة للنقر بشكل طبيعي فوق التغبيش */
+ #warning-modal {
+ display: none;
+ position: fixed;
+ top: 0; left: 0; right: 0; bottom: 0;
+ background: rgba(0,0,0,0.85);
+ z-index: 99999;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ text-align: center;
+ padding: 20px;
+ pointer-events: auto;
+ }
+ .modal-card {
+ background: #0f2d21;
+ border: 2px solid #ef4444;
+ padding: 30px;
+ border-radius: 20px;
+ max-width: 450px;
+ box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+ pointer-events: auto;
+ }
+ .modal-card h2 { color: #ef4444; font-size: 1.4rem; margin-bottom: 12px; }
+ .modal-card p { color: #f8fafc; font-size: 1rem; margin-bottom: 20px; line-height: 1.6; }
+ .modal-btn { background: #ef4444; color: white; border: none; padding: 12px 24px; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 1rem; pointer-events: auto; }
 
-        @media print {
-            body * { visibility: hidden; }
-            .certificate-card, .certificate-card * { visibility: visible; }
-            .certificate-card { position: absolute; left: 0; top: 0; width: 100%; border: 2px solid #000; }
-        }
-    </style>
+ @media print {
+ body * { visibility: hidden; }
+ .certificate-card, .certificate-card * { visibility: visible; }
+ .certificate-card { position: absolute; left: 0; top: 0; width: 100%; border: 2px solid #000; }
+ }
+ </style>
 </head>
 <body oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
 
-    <div class="global-watermark">أ. محمد أمين نظير</div>
+ <div class="global-watermark">أ. محمد أمين نظير</div>
 
-    <div id="warning-modal">
-        <div class="modal-card">
-            <h2>⚠️ تحذير: مغادرة الاختبار!</h2>
-            <p>لقد قمت بمغادرة شاشة الاختبار أو محاولة تحديث الصفحة! تم تطبيق حظر وتغبيش للحفاظ على نزاهة الاختبار.</p>
-            <button class="modal-btn" onclick="resumeExam()">العودة للاختبار 🔄</button>
-        </div>
-    </div>
+ <!-- تحذير عند الخروج أو التغبيش -->
+ <div id="warning-modal">
+ <div class="modal-card">
+ <h2>⚠️ تحذير: مغادرة الاختبار!</h2>
+ <p>لقد قمت بمغادرة شاشة الاختبار أو محاولة تغيير النافذة!</p>
+ <button class="modal-btn" onclick="resumeExam()">العودة للاختبار 🔄</button>
+ </div>
+ </div>
 
-    <div class="container">
-        <div class="header-title">
-            🧪 الامتحان الشامل - الباب الأول كيمياء<br>
-            <span style="font-size:0.95rem; color:#34d399; font-weight:normal;">العناصر الانتقالية والحديد وأكاسيده (100 سؤال)</span><br>
-            <span class="green-badge">⏱️ المدة: 120 دقيقة (ساعتان)</span>
-        </div>
+ <div class="container" id="main-container">
+ <div class="header-title">
+ 🧪 الامتحان الشامل - الباب الأول كيمياء<br>
+ <span style="font-size:0.95rem; color:#34d399; font-weight:normal;">العناصر الانتقالية والحديد وأكاسيده (100 سؤال)</span><br>
+ <span class="green-badge">⏱️ المدة: 120 دقيقة (ساعتان)</span>
+ </div>
 
-        <div id="login-section">
-            <form onsubmit="startExam(event)">
-                <div class="form-group">
-                    <label>اسم الطالب الكامل (ثلاثي أو رباعي):</label>
-                    <input type="text" id="student-name" class="form-control" placeholder="أدخل اسمك الثلاثي..." required>
-                </div>
-                <div class="form-group" style="margin-top: 10px;">
-                    <label>كود الطالب الخاص بك:</label>
-                    <input type="password" id="student-code" class="form-control" placeholder="أدخل كود الطالب..." required>
-                </div>
-                <button type="submit" class="btn-start" style="width:100%;">ابدأ الامتحان الشامل الآن 🚀 (120 دقيقة)</button>
-            </form>
-        </div>
+ <!-- 1. شاشة الدخول -->
+ <div id="login-section">
+ <form onsubmit="startExam(event)">
+ <div class="form-group">
+ <label>اسم الطالب الكامل (ثلاثي أو رباعي):</label>
+ <input type="text" id="student-name" class="form-control" placeholder="أدخل اسمك الثلاثي..." required>
+ </div>
+ <div class="form-group" style="margin-top: 10px;">
+ <label>كود الطالب الخاص بك:</label>
+ <input type="password" id="student-code" class="form-control" placeholder="أدخل كود الطالب..." required>
+ </div>
+ <button type="submit" class="btn-start" style="width:100%;">ابدأ الامتحان الشامل الآن 🚀 (120 دقيقة)</button>
+ </form>
+ </div>
 
-        <div id="exam-section">
-            <div class="teacher-tag">
-                👨‍🏫 إعداد ومتابعة: أ. محمد أمين نظير | الباب الأول كيمياء الثانوية العامة
-            </div>
+ <!-- 2. شاشة الأسئلة -->
+ <div id="exam-section">
+ <div class="teacher-tag">
+ 👨‍🏫 إعداد ومتابعة: أ. محمد أمين نظير | الباب الأول كيمياء الثانوية العامة
+ </div>
 
-            <div class="status-panel">
-                <div class="timer-badge" id="timer-display">120:00</div>
-                <div class="user-badge">👤 <span id="display-student-name">الطالب</span></div>
-            </div>
+ <div class="status-panel">
+ <div class="timer-badge" id="timer-display">120:00</div>
+ <div class="user-badge">👤 <span id="display-student-name">الطالب</span></div>
+ </div>
 
-            <div class="question-grid" id="question-grid"></div>
+ <div class="question-grid" id="question-grid"></div>
 
-            <div class="question-card">
-                <div class="question-content">
-                    <div class="question-header">
-                        <span id="question-number-lbl">السؤال 1 من 100</span>
-                        <span id="question-type-lbl">اختيار من متعدد</span>
-                    </div>
-                    <div class="question-text" id="question-text"></div>
-                    <div id="diagram-box"></div>
-                    <div class="options-list" id="options-container"></div>
-                </div>
-            </div>
+ <div class="question-card">
+ <div class="question-content">
+ <div class="question-header">
+ <span id="question-number-lbl">السؤال 1 من 100</span>
+ <span id="question-type-lbl">اختيار من متعدد</span>
+ </div>
+ <div class="question-text" id="question-text"></div>
+ <div id="diagram-box"></div>
+ <div class="options-list" id="options-container"></div>
+ </div>
+ </div>
 
-            <div class="action-buttons">
-                <button class="btn btn-prev" id="btn-prev" onclick="prevQuestion()">السابق</button>
-                <button class="btn btn-next" id="btn-next" onclick="nextQuestion()">التالي</button>
-                <button class="btn btn-submit" onclick="submitExam()">تسليم الامتحان 🏁</button>
-            </div>
-        </div>
+ <div class="action-buttons">
+ <button class="btn btn-prev" id="btn-prev" onclick="prevQuestion()">السابق</button>
+ <button class="btn btn-next" id="btn-next" onclick="nextQuestion()">التالي</button>
+ <button class="btn btn-submit" onclick="submitExam()">تسليم الامتحان 🏁</button>
+ </div>
+ </div>
 
-        <div id="result-section">
-            <div class="result-title">🎯 تم إنهاء الامتحان وتصحيحه بنجاح</div>
+ <!-- 3. شاشة النتيجة والشهادة -->
+ <div id="result-section">
+ <div class="result-title">🎯 تم إنهاء الامتحان وتصحيحه بنجاح</div>
 
-            <div class="certificate-card" id="cert-card">
-                <div class="cert-header">🎓 شهادة تميز وتقييم شامل 🎓</div>
-                <div class="cert-sub">امتحان الباب الأول كيمياء - العناصر الانتقالية والحديد</div>
-                <div>يشهد أستاذ المادة بأن الطالب/ة:</div>
-                <div class="cert-name" id="cert-student-name">...</div>
-                <div class="cert-body">
-                    قد أتم الاختبار الشامل بنجاح وحصل على درجة:<br>
-                    <b id="cert-score" style="color:#fbbf24; font-size: 1.7rem;">0</b> من 100<br>
-                    التقدير العام: <b id="cert-grade" style="color:#34d399;">...</b>
-                </div>
-                <div class="cert-footer">
-                    <div>التاريخ: <span id="cert-date"></span></div>
-                    <div>مدرس المادة: <b>أ. محمد أمين نظير</b></div>
-                </div>
-            </div>
+ <div class="certificate-card" id="cert-card">
+ <div class="cert-header">🎓 شهادة تميز وتقييم شامل 🎓</div>
+ <div class="cert-sub">امتحان الباب الأول كيمياء - العناصر الانتقالية والحديد</div>
+ <div>يشهد أستاذ المادة بأن الطالب/ة:</div>
+ <div class="cert-name" id="cert-student-name">...</div>
+ <div class="cert-body">
+ قد أتم الاختبار الشامل بنجاح وحصل على درجة:<br>
+ <b id="cert-score" style="color:#fbbf24; font-size: 1.7rem;">0</b> من 100<br>
+ التقدير العام: <b id="cert-grade" style="color:#34d399;">...</b>
+ </div>
+ <div class="cert-footer">
+ <div>التاريخ: <span id="cert-date"></span></div>
+ <div>مدرس المادة: <b>أ. محمد أمين نظير</b></div>
+ </div>
+ </div>
 
-            <button class="btn btn-start" style="width:100%; margin-bottom:10px;" onclick="window.print()">طباعة / حفظ الشهادة 🖨️</button>
+ <button class="btn btn-start" style="width:100%; margin-bottom:10px;" onclick="window.print()">طباعة / حفظ الشهادة 🖨️</button>
 
-            <div class="review-box" id="review-container">
-                <div class="review-title">❌ مراجعة الأخطاء والإجابات النموذجية:</div>
-                <div id="review-list"></div>
-            </div>
+ <div class="review-box" id="review-container">
+ <div class="review-title">❌ مراجعة الأخطاء والإجابات النموذجية:</div>
+ <div id="review-list"></div>
+ </div>
 
-            <button class="btn" style="background-color:#062e1e; color:white; width:100%; margin-top:15px; border:1px solid #10b981;" onclick="location.reload()">إعادة الامتحان 🔄</button>
-        </div>
+ <button class="btn" style="background-color:#062e1e; color:white; width:100%; margin-top:15px; border:1px solid #10b981;" onclick="location.reload()">إعادة الامتحان 🔄</button>
+ </div>
 
-        <div style="margin-top:18px; text-align:center; font-size:0.82rem; color:#64748b;">
-            جميع الحقوق محفوظة للأستاذ <b>محمد أمين نظير</b> - مادة الكيمياء
-        </div>
-    </div>
+ <div style="margin-top:18px; text-align:center; font-size:0.82rem; color:#64748b;">
+ جميع الحقوق محفوظة للأستاذ <b>محمد أمين نظير</b> - مادة الكيمياء
+ </div>
+ </div>
 
-    <script>
-        document.addEventListener('keydown', function(e) {
-            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85) || (e.ctrlKey && e.keyCode == 82) || e.keyCode == 116) {
-                e.preventDefault();
-                return false;
-            }
-        });
+ <script>
+ document.addEventListener('keydown', function(e) {
+ if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85) || (e.ctrlKey && e.keyCode == 82) || e.keyCode == 116) {
+ e.preventDefault();
+ return false;
+ }
+ });
 
-        let examStarted = false;
-        window.addEventListener('beforeunload', function (e) {
-            if (examStarted) {
-                e.preventDefault();
-                e.returnValue = 'هل أنت تأكد من الخروج؟ سيتم إعادة ضبط الامتحان!';
-            }
-        });
+ let examStarted = false;
+ window.addEventListener('beforeunload', function (e) {
+ if (examStarted) {
+ e.preventDefault();
+ e.returnValue = 'هل أنت تأكد من الخروج؟ سيتم إعادة ضبط الامتحان!';
+ }
+ });
 
-        window.addEventListener('blur', function() {
-            if (examStarted) {
-                document.body.classList.add('blurred');
-                document.getElementById('warning-modal').style.display = 'flex';
-            }
-        });
+ window.addEventListener('blur', function() {
+ if (examStarted) {
+ document.getElementById('main-container').classList.add('blurred');
+ document.getElementById('warning-modal').style.display = 'flex';
+ }
+ });
 
-        function resumeExam() {
-            document.body.classList.remove('blurred');
-            document.getElementById('warning-modal').style.display = 'none';
-        }
+ function resumeExam() {
+ document.getElementById('main-container').classList.remove('blurred');
+ document.getElementById('warning-modal').style.display = 'none';
+ }
 
-        const teacherName = "أ. محمد أمين نظير";
+ const teacherName = "أ. محمد أمين نظير";
 
-        const rawQuestions = [
-          { "id": 1, "type": "mcq", "text": "س1: [إعداد أ. محمد أمين نظير] عنصر انتقالي رئيسي في السلسلة الأولى، يحتوي أيونه X³⁺ على 3 إلكترونات مفردة في المستوى الفرعي 3d. ما هو العدد الذري لهذا العنصر؟", "options": ["23 (الفاناديوم)", "24 (الكروم)", "26 (الحديد)", "28 (النيكل)"], "correct": 2 },
-          { "id": 2, "type": "mcq", "text": "س2: [إعداد أ. محمد أمين نظير] بالاستعانة بمخطط الطاقة المقابل للتفاعل الاتجاه الطارد للحوارة: إذا كانت طاقة المتفاعلات 190 kJ وطاقة النواتج 120 kJ، وطاقة التنشيط للتفاعل العكسي غير المحفز 260 kJ، فما قيمة طاقة التنشيط للتفاعل الطردي بدون عامل حفاز؟", "svg": "<svg width=\"320\" height=\"180\" viewBox=\"0 0 320 180\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"30\" y1=\"150\" x2=\"300\" y2=\"150\" stroke=\"#34d399\" stroke-width=\"2\"/><line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"150\" stroke=\"#34d399\" stroke-width=\"2\"/><text x=\"10\" y=\"15\" fill=\"#34d399\" font-size=\"10\">الطاقة (kJ)</text><text x=\"240\" y=\"165\" fill=\"#34d399\" font-size=\"10\">اتجاه التفاعل</text><line x1=\"40\" y1=\"100\" x2=\"100\" y2=\"100\" stroke=\"#fbbf24\" stroke-width=\"3\"/><text x=\"45\" y=\"92\" fill=\"#fbbf24\" font-size=\"11\" font-weight=\"bold\">متفاعلات (190)</text><path d=\"M 100 100 Q 150 20 200 130\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" stroke-dasharray=\"4\"/><path d=\"M 100 100 Q 150 50 200 130\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\"/><line x1=\"200\" y1=\"130\" x2=\"280\" y2=\"130\" stroke=\"#38bdf8\" stroke-width=\"3\"/><text x=\"210\" y=\"145\" fill=\"#38bdf8\" font-size=\"11\" font-weight=\"bold\">نواتج (120)</text><text x=\"125\" y=\"40\" fill=\"#ef4444\" font-size=\"10\">بدون حفاز (260)</text><text x=\"135\" y=\"70\" fill=\"#10b981\" font-size=\"10\">بحفاز (220)</text></svg>", "options": ["70 kJ", "190 kJ", "130 kJ", "260 kJ"], "correct": 1 },
-          { "id": 3, "type": "mcq", "text": "س3: [إعداد أ. محمد أمين نظير] أي مما يلي يعبر بصورة صحيحة عن الثبات النسبي للثبات الذري والثبات في نصف القطر لعناصر السلسلة الانتقالية الأولى والمبين بالشكل البياني؟", "svg": "<svg width=\"320\" height=\"150\" viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"30\" y1=\"130\" x2=\"300\" y2=\"130\" stroke=\"#34d399\" stroke-width=\"2\"/><line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"130\" stroke=\"#34d399\" stroke-width=\"2\"/><path d=\"M 40 30 Q 110 90 150 90 L 290 90\" fill=\"none\" stroke=\"#fbbf24\" stroke-width=\"3\"/><text x=\"35\" y=\"25\" fill=\"#fbbf24\" font-size=\"10\">Sc</text><text x=\"135\" y=\"110\" fill=\"#fbbf24\" font-size=\"10\">Cr</text><text x=\"275\" y=\"110\" fill=\"#fbbf24\" font-size=\"10\">Cu</text><text x=\"10\" y=\"15\" fill=\"#34d399\" font-size=\"10\">نصف القطر</text><text x=\"240\" y=\"145\" fill=\"#34d399\" font-size=\"10\">العدد الذري</text></svg>", "options": ["يقل نصف القطر بوضوح من Sc إلى Cr ثم يثبت تقريبًا من Cr إلى Cu نتيجة تساوي عاملي الشحنة الفعالة والتنافر", "يزداد نصف القطر بزيادة العدد الذري طردياً", "يثبت نصف القطر من Sc إلى Zn بشكل كلي", "يقل نصف القطر باستمرار حتى عنصر الخارصين Zn"], "correct": 0 },
-          { "id": 4, "type": "mcq", "text": "س4: [إعداد أ. محمد أمين نظير] التركيب الإلكتروني لأيون الفلز الانتقالي M في المركب M₂O₅ يحتوي على إلكترونات مفردة عددها:", "options": ["0 (دايامغناطيسي)", "1 إلكترون مفرد", "3 إلكترونات مفردة", "5 إلكترونات مفردة"], "correct": 0 },
-          { "id": 5, "type": "mcq", "text": "س5: [إعداد أ. محمد أمين نظير] أقصى حالة تأكسد تظهر في عناصر السلسلة الانتقالية الأولى تتعدى رقم المجموعة في عنصر:", "options": ["السكانديوم (Sc)", "المنجنيز (Mn)", "النحاس (Cu)", "الزنك (Zn)"], "correct": 2 },
-          { "id": 6, "type": "mcq", "text": "س6: [إعداد أ. محمد أمين نظير] عند تسخين أوكسالات الحديد II بمعزل عن الهواء ثم إضافة حمض الهيدروكلوريك المخفف إلى الناتج الصلب، يتكون:", "options": ["كلوريد حديد III وماء", "كلوريد حديد II وهيدروجين", "كلوريد حديد II وماء", "كلوريد حديد III وهيدروجين"], "correct": 2 },
-          { "id": 7, "type": "mcq", "text": "س7: [إعداد أ. محمد أمين نظير] عند تسخين كبريتات الحديد II (FeSO₄) تسخيناً شديداً، يتكون غازان هما SO₂ و SO₃ ورواسب حمراء. يرجع السبب في تكون أكسيد الحديد III وليس II إلى أن غاز SO₃ يعتبر:", "options": ["عامل اختزال قوي", "عامل مؤكسد قوي", "مادة دايامغناطيسية", "حمض مركز"], "correct": 1 },
-          { "id": 8, "type": "mcq", "text": "س8: [إعداد أ. محمد أمين نظير] يمكن التمييز بين حمض الكبريتيك المخفف وحمض الكبريتيك المركز الساخن باستخدام برادة الحديد عن طريق:", "options": ["تصاعد غاز SO₂ ذو الرائحة النفاثة مع المركز فقط", "تكون راسب أحمر مع المخفف", "عدم حدوث تفاعل مع المخفف", "انطلاق غاز CO₂ في الحالتين"], "correct": 0 },
-          { "id": 9, "type": "mcq", "text": "س9: [إعداد أ. محمد أمين نظير] سبيكة الصلب الذي لا يصدأ (الستانلس ستيل) تتكون من الحديد و....... وهي من أنواع السبائك .......", "options": ["الكروم / الاستبدالية", "الكربون / البينية", "الألومنيوم / بين الفلزية", "المنجنيز / البينية"], "correct": 0 },
-          { "id": 10, "type": "mcq", "text": "س10: [إعداد أ. محمد أمين نظير] السبيكة الناتجة من التفاعل الكيميائي بين عنصرين لا يقعان في مجموعة واحدة ولها صيغة كيميائية محددة لا تخضع لقوانين التكافؤ هي سبيكة:", "options": ["بينية", "استبدالية", "بين فلزية (مثل السيمينتيت Fe₃C)", "البرونز"], "correct": 2 },
-          { "id": 11, "type": "mcq", "text": "س11: تركيز خام الحديد يهدف إلى زيادة نسبة الحديد عن طريق فصل الشوائب بالخواص الفيزيائية والميكانيكية مثل: [إعداد أ. محمد أمين نظير]", "options": ["التوتر السطحي والفصل المغناطيسي والكهربي", "التحميص والتكسير", "الاختزال بالغاز المائي", "الصهر الكهربي"], "correct": 0 },
-          { "id": 12, "type": "mcq", "text": "س12: العامل المختزل في الفرن العالي هو غاز أول أكسيد الكربون الناتج من تفاعل فحم الكوك مع: [إعداد أ. محمد أمين نظير]", "options": ["الأكسجين ثم ثاني أكسيد الكربون", "غاز الميثان بخار الماء", "الهيدروجين", "النيتروجين"], "correct": 0 },
-          { "id": 13, "type": "mcq", "text": "س13: العامل المختزل في فرن ميدركس هو الغاز المائي المحضر من تفاعل غاز الميثان CH₄ مع: [إعداد أ. محمد أمين نظير]", "options": ["CO₂ وبخار الماء H₂O", "الأكسجين النقي", "فحم الكوك", "الهيدروجين"], "correct": 0 },
-          { "id": 14, "type": "mcq", "text": "س14: عند مركب K₂Cr₂O₇ تكون حالة تأكسد الكروم فيه تساوي +6، ولون هذا المركب أورانج (برتقالي) بسبب امتصاصه للون: [إعداد أ. محمد أمين نظير]", "options": ["الأزرق المتمم للبرتقالي", "الأحمر", "الأخضر", "الأصفر"], "correct": 0 },
-          { "id": 15, "type": "mcq", "text": "س15: جميع المركبات التالية ملونة وبارامغناطيسية ما عدا: [إعداد أ. محمد أمين نظير]", "options": ["ScCl₃", "FeCl₃", "CuSO₄", "VCl₃"], "correct": 0 },
-          { "id": 16, "type": "mcq", "text": "س16: أقصى عزم مغناطيسي في ذرات عناصر السلسلة الانتقالية الأولى يوجد في ذرة عنصر: [إعداد أ. محمد أمين نظير]", "options": ["الحديد ₂₆Fe", "المنجنيز ₂₅Mn", "الكروم ₂₄Cr", "النحاس ₂₉Cu"], "correct": 2 },
-          { "id": 17, "type": "mcq", "text": "س17: يسهل تأكسد أيون الحديد II إلى أيون الحديد III لأن التركيب الإلكتروني لأيون الحديد III ينتهي بـ: [إعداد أ. محمد أمين نظير]", "options": ["3d⁵ أكثر استقراراً وشبه مكتمل", "3d⁶", "3d¹⁰", "4s²"], "correct": 0 },
-          { "id": 18, "type": "mcq", "text": "س18: يصعب تأكسد أيون المنجنيز II إلى المنجنيز III لأن التركيب الإلكتروني لأيون M²⁺ ينتهي بـ: [إعداد أ. محمد أمين نظير]", "options": ["3d⁵ مستقر جداً", "3d⁴", "3d⁶", "4s¹"], "correct": 0 },
-          { "id": 19, "type": "mcq", "text": "س19: حمض النيتريك المركز يسبب خمولاً كيميائياً للحديد بسبب تكون: [إعداد أ. محمد أمين نظير]", "options": ["طبقة غير مسامية من الأكسيد على سطح الحديد تمنع استمرار التفاعل", "راسب أسود من كبريتيد الحديد", "غاز ثاني أكسيد الكبريت", "سبائك بينية"], "correct": 0 },
-          { "id": 20, "type": "mcq", "text": "س20: لإزالة طبقة الخمول الكيميائي عن سطح الحديد يمكن استخدام: [إعداد أ. محمد أمين نظير]", "options": ["الحك الميكانيكي أو إضافه حمض HCl المخفف", "التسخين الشديد فقط", "إضافة حمض H₂SO₄ المركز", "الماء المقطر"], "correct": 0 },
-          { "id": 21, "type": "mcq", "text": "س21: عند تفاعل الحديد مع غاز الكلور Cl₂ يتكون كلوريد الحديد III وليس كلوريد الحديد II لأن غاز الكلور عامل: [إعداد أ. محمد أمين نظير]", "options": ["مؤكسد قوي", "مختزل قوي", "حفاز", "متردد"], "correct": 0 },
-          { "id": 22, "type": "mcq", "text": "س22: عند تفاعل الحديد مع الكبريت S بالتسخين يتكون: [إعداد أ. محمد أمين نظير]", "options": ["FeS (كبريتيد الحديد II)", "Fe₂S₃", "FeSO₄", "Fe₂(SO₄)₃"], "correct": 0 },
-          { "id": 23, "type": "mcq", "text": "س23: تسخين هيدروكسيد الحديد III عند درجة حرارة أعلى من 200°C ينتج عنه: [إعداد أ. محمد أمين نظير]", "options": ["أكسيد الحديد III وبخار ماء", "أكسيد الحديد II وماء", "أكسيد حديد مغناطيسي", "حديد نقي"], "correct": 0 },
-          { "id": 24, "type": "mcq", "text": "س24: يمكن الحصول على أكسيد الحديد II بنسبة نقية من اختزال أكسيد الحديد III بـ CO عند درجة حرارة: [إعداد أ. محمد أمين نظير]", "options": ["400°C - 700°C", "230°C - 300°C", "أعلى من 700°C", "100°C"], "correct": 0 },
-          { "id": 25, "type": "mcq", "text": "س25: اختزال أكسيد الحديد III أو أكسيد الحديد المغناطيسي أو الهيماتيت عند درجة حرارة أعلى من 700°C ينتج: [إعداد أ. محمد أمين نظير]", "options": ["الحديد النقي Fe", "أكسيد الحديد II", "أكسيد الحديد المغناطيسي", "السيدريت"], "correct": 0 },
-          { "id": 26, "type": "mcq", "text": "س26: عند إمرار بخار الماء الساخن على الحديد عند 500°C يتكون: [إعداد أ. محمد أمين نظير]", "options": ["أكسيد حديد مغناطيسي Fe₃O₄ وغاز H₂", "أكسيد حديد III Fe₂O₃", "أكسيد حديد II FeO", "هيدروكسيد حديد III"], "correct": 0 },
-          { "id": 27, "type": "mcq", "text": "س27: يتفاعل أكسيد الحديد المغناطيسي Fe₃O₄ مع الأحماض المركزة الساخنة يعطي مزيجاً من مادتين هما: [إعداد أ. محمد أمين نظير]", "options": ["أملاح حديد II وأملاح حديد III وماء (لأنه أكسيد مختلط)", "أملاح حديد II فقط وماء", "أملاح حديد III فقط وغاز هيدروجين", "حديد نقي وماء"], "correct": 0 },
-          { "id": 28, "type": "mcq", "text": "س28: المادة التي تمتص اللون الأحمر من الضوء الأبيض تظهر للعين باللون المتمم وهو: [إعداد أ. محمد أمين نظير]", "options": ["الأخضر", "الأزرق", "الأصفر", "البنفسجي"], "correct": 0 },
-          { "id": 29, "type": "mcq", "text": "س29: عنصر السكانديوم ₂₁Sc يمتلك حالة تأكسد واحدة فقط وهي +3، ويكون مركباته ككل: [إعداد أ. محمد أمين نظير]", "options": ["دايامغناطيسية وغير ملونة", "بارامغناطيسية وملونة", "بارامغناطيسية وغير ملونة", "دايامغناطيسية وملونة"], "correct": 0 },
-          { "id": 30, "type": "mcq", "text": "س30: العنصر الانتقالي الذي يستبدل به عظام المفصل الصناعي لعدم رفض الجسم له وغير سام هو: [إعداد أ. محمد أمين نظير]", "options": ["التيتانيوم (Ti)", "السكانديوم (Sc)", "الفاناديوم (V)", "النيكل (Ni)"], "correct": 0 },
-          { "id": 31, "type": "mcq", "text": "س31: تركيبة سبيكة الديورالومين تتكون من الألومنيوم والنيكل أو الألومنيوم و: [إعداد أ. محمد أمين نظير]", "options": ["النحاس", "الحديد", "الزنك", "الذهب"], "correct": 0 },
-          { "id": 32, "type": "mcq", "text": "س32: تتشابه عناصر المجموعات الرأسية الثامنة VIII في الجدول الدوري في أن: [إعداد أ. محمد أمين نظير]", "options": ["التشابه الأفقي أكبر من التشابه الرأسي", "التشابه الرأسي أكبر من الأفقي", "جميعها عناصر غير انتقالية", "تمتلك حالة تأكسد تعادل رقم المجموعة"], "correct": 0 },
-          { "id": 33, "type": "mcq", "text": "س33: عدد الإلكترونات المفردة في أيون الكروم Cr³⁺ يساوي: [إعداد أ. محمد أمين نظير]", "options": ["3 إلكترونات مفردة في 3d", "1 إلكترون مفرد", "5 إلكترونات مفردة", "0 إلكترون مفرد"], "correct": 0 },
-          { "id": 34, "type": "mcq", "text": "س34: المركب المستقر المستخدم كمادة مؤكسدة ومطهرة في الطبية هو: [إعداد أ. محمد أمين نظير]", "options": ["برمنجنات البوتاسيوم KMnO₄", "ثاني أكسيد التيتانيوم TiO₂", "كبريتات النحاس CuSO₄", "أكسيد الخارصين ZnO"], "correct": 0 },
-          { "id": 35, "type": "mcq", "text": "س35: عنصر انتقالي X يقع في السلسلة الأولى يحتوي على إلكترون واحد مفرد في حالته الذرية وجميع مركباته غير ملونة. هذا العنصر هو: [إعداد أ. محمد أمين نظير]", "options": ["السكانديوم Sc", "النحاس Cu", "الزنك Zn", "التيتانيوم Ti"], "correct": 0 },
-          { "id": 36, "type": "mcq", "text": "س36: أي المحاليل الآتية يظهر باللون الأزرق؟ [إعداد أ. محمد أمين نظير]", "options": ["CuSO₄(aq)", "FeSO₄(aq)", "ZnSO₄(aq)", "ScCl₃(aq)"], "correct": 0 },
-          { "id": 37, "type": "mcq", "text": "س37: من مركبات التيتانيوم المستخدمة في مستحضرات الحماية من أشعة الشمس الدقيقة نانوية الحجم: [إعداد أ. محمد أمين نظير]", "options": ["TiO₂", "TiCl₄", "Ti₂O₃", "TiSO₄"], "correct": 0 },
-          { "id": 38, "type": "mcq", "text": "س38: السبيكة المستخدمة في صناعة ملفات التسخين والأفران الكهربائية لمقاومتها للتآكل وهي ساخنة تتكون من: [إعداد أ. محمد أمين نظير]", "options": ["النيكل والكروم", "الحديد والنيكل", "الألومنيوم والتيتانيوم", "النحاس والخارصين"], "correct": 0 },
-          { "id": 39, "type": "mcq", "text": "س39: خام الحديد ذو اللون الأصفر والمتبلور الهيدراتي هو خام: [إعداد أ. محمد أمين نظير]", "options": ["الليلمونيت 2Fe₂O₃·3H₂O", "الهيماتيت Fe₂O₃", "المغنيتيت Fe₃O₄", "السيدريت FeCO₃"], "correct": 0 },
-          { "id": 40, "type": "mcq", "text": "س40: عند تحميص خام السيدريت FeCO₃ في الهواء الجوي، فإن المنتج النهائي الصلب ذو اللون الأحمر هو: [إعداد أ. محمد أمين نظير]", "options": ["أكسيد الحديد III (Fe₂O₃)", "أكسيد الحديد II (FeO)", "أكسيد الحديد المغناطيسي (Fe₃O₄)", "الحديد النقي (Fe)"], "correct": 0 },
-          { "id": 41, "type": "mcq", "text": "س41: طاقة التنشيط في التفاعلات الكيميائية تقل عند إضافة عامل حفاز لأن العامل الحفاز يوفر مساراً بديلًا ذو طاقة تنشيط: [إعداد أ. محمد أمين نظير]", "options": ["أقل", "أعلى", "متساوية", "معدومة تماماً"], "correct": 0 },
-          { "id": 42, "type": "mcq", "text": "س42: طاقة التفاعل (ΔH) تحسب من القانون: [إعداد أ. محمد أمين نظير]", "options": ["طاقة النواتج - طاقة المتفاعلات", "طاقة المتفاعلات - طاقة النواتج", "طاقة التنشيط العكسي + طاقة التنشيط الطردي", "طاقة المتفاعلات + طاقة النواتج"], "correct": 0 },
-          { "id": 43, "type": "mcq", "text": "س43: يتفاعل FeO مع حمض HCl المخفف لينتج كلوريد حديد II وماء، بينما يتفاعل Fe₂O₃ فقط مع الأحماض المركزة الساخنة بسبب: [إعداد أ. محمد أمين نظير]", "options": ["زيادة الصفة القاعدة لـ FeO وثبات Fe₂O₃ مع الشحنة العالية للحديد III", "صغر حجم FeO", "تفاعل Fe₂O₃ مع الماء", "كون Fe₂O₃ مادة غازية"], "correct": 0 },
-          { "id": 44, "type": "mcq", "text": "س44: عند إضافة حمض الهيدروكلوريك المخفف إلى خليط من برادة الحديد وأكسيد الحديد III يتفاعل الحمض مع: [إعداد أ. محمد أمين نظير]", "options": ["برادة الحديد فقط وينطلق غاز H₂", "أكسيد الحديد III فقط", "كلاهما بفس السرعة", "لا يحدث تفاعل لكلاهما"], "correct": 0 },
-          { "id": 45, "type": "mcq", "text": "س45: الصيغة الكيميائية لمركب السيمينتيت هي Fe₃C وتعتبر سبيكة نوعها: [إعداد أ. محمد أمين نظير]", "options": ["بينفلزية صلبة جداً", "بينية", "استبدالية", "محلول جامد"], "correct": 0 },
-          { "id": 46, "type": "mcq", "text": "س46: عند تسخين المغنيتيت Fe₃O₄ في الهواء الجوي مع الأكسجين يتحول لون الناتج للون الأحمر متكوناً: [إعداد أ. محمد أمين نظير]", "options": ["Fe₂O₃ (أكسيد حديد III)", "FeO", "FeSO₄", "Fe(OH)₃"], "correct": 0 },
-          { "id": 47, "type": "mcq", "text": "س47: التوزيع الإلكتروني لأيون الكوبالت Co²⁺ (العدد الذري 27) هو: [إعداد أ. محمد أمين نظير]", "options": ["[Ar] 3d⁷", "[Ar] 4s² 3d⁵", "[Ar] 3d⁸", "[Ar] 4s¹ 3d⁶"], "correct": 0 },
-          { "id": 48, "type": "mcq", "text": "س48: أي العناصر الانتقالية التالية يكون جهد تأينه الرابع مرتفعاً جداً بسبب كسر مستوى طاقة مكتمل؟ [إعداد أ. محمد أمين نظير]", "options": ["السكانديوم ²¹Sc", "التيتانيوم ²²Ti", "الفاناديوم ²³V", "المنجنيز ²₅Mn"], "correct": 0 },
-          { "id": 49, "type": "mcq", "text": "س49: يرجع الثبات النسبي لأحجام ذرات العناصر الانتقالية من الكروم للنحاس إلى وجود عاملين متعاكسين هما زيادة شحنة النواة الفعالة و: [إعداد أ. محمد أمين نظير]", "options": ["زيادة قوى التنافر بين إلكترونات المستوى 3d", "نقص عدد المستويات", "زيادة الكتلة الذرية فقط", "انخفاض درجة الانصهار"], "correct": 0 },
-          { "id": 50, "type": "mcq", "text": "س50: السبيكة المستخدمة في عمل العملات المعدنية النقدية هي سبيكة استبدالية تتكون من: [إعداد أ. محمد أمين نظير]", "options": ["النحاس والذهب (أو النحاس والنيكل)", "الحديد والكربون", "الألومنيوم والسكانديوم", "الرصاص والذهب"], "correct": 0 },
-          { "id": 51, "type": "mcq", "text": "س51: أي المركبات الآتية يحتوي على أعلى قيمة للعزم المغناطيسي؟ [إعداد أ. محمد أمين نظير]", "options": ["FeCl₃ (أيون Fe³⁺ يحتوي 5 إلكترونات مفردة)", "FeCl₂", "CuSO₄", "TiCl₄"], "correct": 0 },
-          { "id": 52, "type": "mcq", "text": "س52: يضاف عنصر الفاناديوم إلى الصلب لصناعة زمبركات السيارات بسبب تشكيله سبيكة تتميز بـ: [إعداد أ. محمد أمين نظير]", "options": ["قساوة عالية ومقاومة كبيرة للتآكل", "خفة الوزن وشدة الصلابة", "التوصيل الكهربي العالي", "مقاومة الأحماض الساخنة"], "correct": 0 },
-          { "id": 53, "type": "mcq", "text": "س53: تتميز السلسلة الانتقالية الأولى بصلابة فلزاتها وارتفاع درجات انصهارها وغليانها بسبب قوة: [إعداد أ. محمد أمين نظير]", "options": ["الرابطة الفلزية لمشاركة إلكترونات 4s و 3d في تكوينها", "الرابطة الأيونية", "التجاذب البين جزيئي", "الروابط الهيدروجينية"], "correct": 0 },
-          { "id": 54, "type": "mcq", "text": "س54: يمكن فصل برادة الحديد عن مسحوق الخارصين بواسطة: [إعداد أ. محمد أمين نظير]", "options": ["المغناطيس (الحديد بارامغناطيسي والخارصين دايامغناطيسي)", "إضافة ماء مقطر", "الترشيح البسيط", "التسخين في الهواء"], "correct": 0 },
-          { "id": 55, "type": "mcq", "text": "س55: عند إضافة حمض الهيدروكلوريك المخفف إلى كبريتيد الحديد II ينطلق غاز H₂S ذو الرائحة الكريهة ويتميز بـ: [إعداد أ. محمد أمين نظير]", "options": ["يسود ورقة مبللة بخلات الرصاص II", "يعكر ماء الجير الرائق", "يخضر ورقة كبريتات النحاس", "يشتعل بفرقعة"], "correct": 0 },
-          { "id": 56, "type": "mcq", "text": "س56: الأيون الأكثر استقراراً كيميائياً بين الأيونات الآتية هو: [إعداد أ. محمد أمين نظير]", "options": ["Fe³⁺", "Fe²⁺", "Mn³⁺", "Cr²⁺"], "correct": 0 },
-          { "id": 57, "type": "mcq", "text": "س57: التوزع الإلكتروني لذرة الخارصين ₃₀Zn ينتهي بـ 4s² 3d¹⁰، ولذلك يعتبـر الخارصين عنصر: [إعداد أ. محمد أمين نظير]", "options": ["غير انتقالي لأن المستوى الفرعي 3d مكتمل في الحالة الذرية وحالة التأكسد الوحيدة +2", "انتقالي رئيسي", "انتقالي داخلي", "متردد"], "correct": 0 },
-          { "id": 58, "type": "mcq", "text": "س58: النحاس ₂₉Cu يعتبر عنصراً انتقاليًا لأن المستوى الفرعي 3d يكون غير مكتمل بالالكترونات في حالة التأكسد: [إعداد أ. محمد أمين نظير]", "options": ["+2 و +3", "0 فقط", "+1 فقط", "-1"], "correct": 0 },
-          { "id": 59, "type": "mcq", "text": "س59: أكسيد المنجنيز IV (MnO₂) يستخدم في البطاريات الجافة كـ: [إعداد أ. محمد أمين نظير]", "options": ["عامل مؤكسد قوي", "عامل مختزل", "الكتروليت مائي", "مادة دايامغناطيسية"], "correct": 0 },
-          { "id": 60, "type": "mcq", "text": "س60: للتخلص من الشوائب مثل الكبريت والفوسفور في خامات الحديد عن طريق أكسدتها وتحويلها لغازات يتم إجراء عملية: [إعداد أ. محمد أمين نظير]", "options": ["التحميص في الهواء", "التكسير واللبد", "التجميع والتلبيد", "الترشيح والتركيز"], "correct": 0 },
-          { "id": 61, "type": "mcq", "text": "س61: عند تسخين هيدروكسيد الحديد III ويتكون أكسيد الحديد III، ثم اختزال الناتج بواسطة غاز H₂ عند 500°C، نحصل على: [إعداد أ. محمد أمين نظير]", "options": ["أكسيد الحديد II (FeO)", "حديد نقي Fe", "أكسيد حديد مغناطيسي Fe₃O₄", "سيدريت"], "correct": 0 },
-          { "id": 62, "type": "mcq", "text": "س62: مركب خام الهيماتيت صيغته الكيميائية Fe₂O₃ ونسبة الحديد فيه تتراوح تقريباً بين: [إعداد أ. محمد أمين نظير]", "options": ["50% - 60%", "20% - 30%", "80% - 90%", "10% - 15%"], "correct": 0 },
-          { "id": 63, "type": "mcq", "text": "س63: التفاعل التالي: 2FeSO₄ ➔ Fe₂O₃ + SO₂ + SO₃ يعتبر تفاعل: [إعداد أ. محمد أمين نظير]", "options": ["انحلال حراري وأكسدة واختزال ذاتي", "اتحاد مباشر", "إحلال بسيط", "ترسيب مائي"], "correct": 0 },
-          { "id": 64, "type": "mcq", "text": "س64: عند إضافة محلول النشادر NH₄OH إلى محلول كلوريد الحديد III يتكون راسب: [إعداد أ. محمد أمين نظير]", "options": ["بني محمر من Fe(OH)₃", "أبيض مخضر", "أسود", "أصفر جيلاتيني"], "correct": 0 },
-          { "id": 65, "type": "mcq", "text": "س65: عنصر من السلسلة الانتقالية الأولى جميع مركباته دايامغناطيسية وغير ملونة وحالة تأكسده الوحيدة +3 هو: [إعداد أ. محمد أمين نظير]", "options": ["السكانديوم Sc", "الخارصين Zn", "التيتانيوم Ti", "الحديد Fe"], "correct": 0 },
-          { "id": 66, "type": "mcq", "text": "س66: المركب Cr₂O₃ يمتلك لوناً أخضر ويستخدم في صناعة: [إعداد أ. محمد أمين نظير]", "options": ["الأصباغ والدهانات", "المطاط", "مستحضرات التجميل", "البطاريات الجافة"], "correct": 0 },
-          { "id": 67, "type": "mcq", "text": "س67: السبيكة البينية تتكون عندما تدخل ذرات فلز أصغر حجماً في: [إعداد أ. محمد أمين نظير]", "options": ["المسافات البينية للشبكة الكريستالية للفلز الأصلي لمنع الانزلاق", "روابط كيميائية بينية", "مواقع الذرات الأصلية بالكامل", "تفاعل استبدالي"], "correct": 0 },
-          { "id": 68, "type": "mcq", "text": "س68: لتمييز سبيكة الحديد والكربون البينية عن سبيكة السيمينتيت Fe₃C يُضاف حمض HCl مخفف، في سبيكة السيمينتيت يتصاعد غازات هيدروكربونية ذات رائحة كريهة و: [إعداد أ. محمد أمين نظير]", "options": ["تذوب السبيكة بالكامل بدون متبقي كربون أسود", "يترسب الكربون الأسود النقي", "لا يتفاعل الحمض معها", "يتكون راسب بني"], "correct": 0 },
-          { "id": 69, "type": "mcq", "text": "س69: كل العناصر الآتية يمكنها تكوين حالات تأكسد تتعدى عدد إلكترونات المستوى الفرعي 4s ما عدا: [إعداد أ. محمد أمين نظير]", "options": ["السكانديوم Sc (يفقد 4s² و 3d¹ دفعة واحدة)", "الفاناديوم V", "الكروم Cr", "المنجنيز Mn"], "correct": 0 },
-          { "id": 70, "type": "mcq", "text": "س70: تتوقف المادة الانتقالية عن الامتصاص للضوء وتظهر باللون الأبيض إذا كانت: [إعداد أ. محمد أمين نظير]", "options": ["تعكس جميع ألوان الضوء المرئي بدون امتصاص أي منها", "تمتص جميع ألوان الضوء المرئي", "تحتوي 5 إلكترونات مفردة", "تحتوي إلكتروناً واحداً مفردًا"], "correct": 0 },
-          { "id": 71, "type": "mcq", "text": "س71: النيكل المجزأ يستخدم كعامل حفاز في عملية: [إعداد أ. محمد أمين نظير]", "options": ["درجة الزيوت النباتية تحويلها لسماد صلبه", "صناعة النشادر", "اختزال خام الحديد", "تحضير حمض الكبريتيك"], "correct": 0 },
-          { "id": 72, "type": "mcq", "text": "س72: خام السيدريت FeCO₃ لونه رمادي مصفر، عند تحميصه بشدة يطرد غاز: [إعداد أ. محمد أمين نظير]", "options": ["ثاني أكسيد الكربون CO₂", "ثاني أكسيد الكبريت SO₂", "بخار الماء H₂O", "الأكسجين O₂"], "correct": 0 },
-          { "id": 73, "type": "mcq", "text": "س73: أي من الكاتيونات الآتية يعتبر دايامغناطيسي وغير ملون في المحاليل المائية؟ [إعداد أ. محمد أمين نظير]", "options": ["Zn²⁺", "Fe²⁺", "Cu²⁺", "Cr³⁺"], "correct": 0 },
-          { "id": 74, "type": "mcq", "text": "س74: عنصر انتقالي رئيسي يمتلك التركيب الإلكتروني [Ar] 4s¹ 3d¹⁰ يقع في المجموعة الرأسية: [إعداد أ. محمد أمين نظير]", "options": ["1B (المجموعة 11)", "2B", "6B", "8"], "correct": 0 },
-          { "id": 75, "type": "mcq", "text": "س75: التفاعل التالي: Fe₂O₃ + 3CO ➔ 2Fe + 3CO₂ يمثل عملية اختزال تتم في الفرن العالي عند درجة حرارة: [إعداد أ. محمد أمين نظير]", "options": ["أعلى من 700°C", "200°C - 300°C", "400°C - 700°C", "100°C"], "correct": 0 },
-          { "id": 76, "type": "mcq", "text": "س76: أي الأيونات التالية ينتهي بالتركيب الإلكتروني 3d⁴؟ [إعداد أ. محمد أمين نظير]", "options": ["Cr²⁺ و Mn³⁺", "Fe²⁺ و Co³⁺", "Ti³⁺ و V²⁺", "Cu²⁺ و Zn²⁺"], "correct": 0 },
-          { "id": 77, "type": "mcq", "text": "س77: لتغطية المقابض الحديدية بطبقة من النحاس الأصفر نستخدم طريقة الترسيب الكهربي لمحلول يحتوي على أيونات: [إعداد أ. محمد أمين نظير]", "options": ["النحاس والخارصين معا", "النحاس والحديد", "الذهب والنحاس", "الزنك والنيكل"], "correct": 0 },
-          { "id": 78, "type": "mcq", "text": "س78: يتفاعل أكسيد الحديد II مع حمض الكبريتيك المخفف وينتج بلورات خضراء من: [إعداد أ. محمد أمين نظير]", "options": ["كبريتات الحديد II (FeSO₄) وماء", "كبريتات الحديد III وماء", "حديد نقي وغاز H₂", "أكسيد حديد مغناطيسي"], "correct": 0 },
-          { "id": 79, "type": "mcq", "text": "س79: النسبة بين عدد الأوربيتالات النصف مكتملة في ذرة الكروم ₂₄Cr إلى عددها في ذرة المنجنيز ₂₅Mn هي: [إعداد أ. محمد أمين نظير]", "options": ["6 : 5", "5 : 5", "1 : 1", "4 : 5"], "correct": 0 },
-          { "id": 80, "type": "mcq", "text": "س80: أي الطرق الآتية تستخدم في تحضير حمض الكبريتيك صناعياً باستخدام خامس أكسيد الفاناديوم V₂O₅ كعامل حفاز عند 450°C؟ [إعداد أ. محمد أمين نظير]", "options": ["طريقة التلامس", "طريقة هابر-بوش", "طريقة فيشر-تروبش", "طريقة الترسيب الكهربي"], "correct": 0 },
-          { "id": 81, "type": "mcq", "text": "س81: طريقة فيشر-تروبش تستخدم الحديد المجزأ كعامل حفاز لتحويل الغاز المائي إلى: [إعداد أ. محمد أمين نظير]", "options": ["وقود سائل هيدروكربوني", "غاز غاز الميثان", "سماد نيتروجيني", "حمض النتريك"], "correct": 0 },
-          { "id": 82, "type": "mcq", "text": "س82: السبيكة التي تتكون من عنصرين لهما نفس القطر والتركيب الكريستالي والخواص الكيميائية هي سبيكة: [إعداد أ. محمد أمين نظير]", "options": ["استبدالية", "بينية", "بين فلزية", "مركبة"], "correct": 0 },
-          { "id": 83, "type": "mcq", "text": "س83: عند تعريض برادة الحديد لغاز الكلور Cl₂ ثم إضافة محلول هيدروكسيد الصوديوم NaOH للناتج، يتكون راسب: [إعداد أ. محمد أمين نظير]", "options": ["بني محمر Fe(OH)₃", "أبيض مخضر Fe(OH)₂", "أسود FeS", "أصفر"], "correct": 0 },
-          { "id": 84, "type": "mcq", "text": "س84: عدد إلكترونات المستوى الفرعي 3d في كاتيون الكوبالت في المركب CoCl₃ هو: [إعداد أ. محمد أمين نظير]", "options": ["6 إلكترونات", "7 إلكترونات", "5 إلكترونات", "3 إلكترونات"], "correct": 0 },
-          { "id": 85, "type": "mcq", "text": "س85: يتفاعل الحديد مع الأحماض المخففة متصاعداً غاز الهيدروجين والذي يعمل كـ: [إعداد أ. محمد أمين نظير]", "options": ["عامل مختزل يمنع تكون أملاح الحديد III", "عامل مؤكسد قوي", "عامل حفاز", "حمض جديد"], "correct": 0 },
-          { "id": 86, "type": "mcq", "text": "س86: أي العناصر التالية يمتلك أعلى درجة انصهار في السلسلة الانتقالية الأولى؟ [إعداد أ. محمد أمين نظير]", "options": ["الكروم Cr (بسبب قوة الرابطة الفلزية بـ 6 إلكترونات تكافؤ)", "السكانديوم Sc", "الحديد Fe", "النحاس Cu"], "correct": 0 },
-          { "id": 87, "type": "mcq", "text": "س87: عند إمرار غاز أول أكسيد الكربون CO على الهيماتيت عند 250°C يكون الناتج الرئيسي هو: [إعداد أ. محمد أمين نظير]", "options": ["أكسيد الحديد المغناطيسي Fe₃O₄", "أكسيد الحديد II FeO", "حديد Fe", "سيدريت"], "correct": 0 },
-          { "id": 88, "type": "mcq", "text": "س88: الكتلة الذرية لعناصر السلسلة الانتقالية الأولى تزداد بزيادة العدد الذري ويشذ عن ذلك عنصر: [إعداد أ. محمد أمين نظير]", "options": ["النيكل ₂₈Ni بمتوسط كتلة 58.7u لوجود 5 نظائر مستقرة", "الكروم", "الكوبالت", "النحاس"], "correct": 0 },
-          { "id": 89, "type": "mcq", "text": "س89: المادة التي تتجاذب مع المجال المغناطيسي الخارجي نتيجة وجود إلكترونات مفردة في أوربيتالاتها تسمى مادة: [إعداد أ. محمد أمين نظير]", "options": ["بارامغناطيسية", "دايامغناطيسية", "عازلة", "مترددة"], "correct": 0 },
-          { "id": 90, "type": "mcq", "text": "س90: المخطط التأكسدي الآتي: Fe ➔ Fe₃O₄ ➔ Fe₂O₃ ➔ FeSO₄ يمثل سلسلة تحويلات كيميائية للحديد، التفاعل الأخير من Fe₂O₃ إلى FeSO₄ يتطلب أولاً: [إعداد أ. محمد أمين نظير]", "options": ["اختزال Fe₂O₃ إلى FeO بواسطة CO عند 400-700°C ثم إضافة H₂SO₄ مخفف", "إضافة H₂SO₄ مخفف مباشرة", "التسخين مع الكبريت", "الأكسدة بالأكسجين"], "correct": 0 },
-          { "id": 91, "type": "tf", "text": "س91: [صح أم خطأ - إعداد أ. محمد أمين نظير] أكسيد الحديد المغناطيسي Fe₃O₄ يعتبر أكسيدًا مختلطاً (مركباً) يتكون من FeO و Fe₂O₃.", "options": ["صح", "خطأ"], "correct": 0 },
-          { "id": 92, "type": "tf", "text": "س92: [صح أم خطأ - إعداد أ. محمد أمين نظير] يحل عنصر السكانديوم Sc محل هيدروجين الماء بشدة بعنف شديد لشدة نشاطه الكيميائي.", "options": ["صح", "خطأ"], "correct": 0 },
-          { "id": 93, "type": "tf", "text": "س93: [صح أم خطأ - إعداد أ. محمد أمين نظير] سبيكة الديورالومين تتكون من الألومنيوم والنيكل وهي سبيكة بينية.", "options": ["صح", "خطأ"], "correct": 1 },
-          { "id": 94, "type": "tf", "text": "س94: [صح أم خطأ - إعداد أ. محمد أمين نظير] الخارصين Zn يعتبر عنصراً انتقاليًا في حالته الذرية وفي حالته التأكسدية الوحيدة +2.", "options": ["صح", "خطأ"], "correct": 1 },
-          { "id": 95, "type": "tf", "text": "س95: [صح أم خطأ - إعداد أ. محمد أمين نظير] حمض النتريك المركز يسبب خمولاً كيميائياً ظاهرياً للحديد لتكون طبقة أكسيد واقية غير مسامية.", "options": ["صح", "خطأ"], "correct": 0 },
-          { "id": 96, "type": "tf", "text": "س96: [صح أم خطأ - إعداد أ. محمد أمين نظير] يتفاعل الحديد مع حمض الهيدروكلوريك المخفف وينتج كلوريد حديد III وغاز الهيدروجين.", "options": ["صح", "خطأ"], "correct": 1 },
-          { "id": 97, "type": "tf", "text": "س97: [صح أم خطأ - إعداد أ. محمد أمين نظير] العزم المغناطيسي لأيون الحديد III أكبر من العزم المغناطيسي لأيون الحديد II.", "options": ["صح", "خطأ"], "correct": 0 },
-          { "id": 98, "type": "tf", "text": "س98: [صح أم خطأ - إعداد أ. محمد أمين نظير] عند تسخين أوكسالات الحديد II بمعزل عن الهواء يتكون أكسيد حديد III وغاز CO وغاز CO₂.", "options": ["صح", "خطأ"], "correct": 1 },
-          { "id": 99, "type": "tf", "text": "س99: [صح أم خطأ - إعداد أ. محمد أمين نظير] طريقة التلامس تستخدم خامس أكسيد الفاناديوم V₂O₅ كعامل حفاز عند 450°C لتصنيع حمض الكبريتيك.", "options": ["صح", "خطأ"], "correct": 0 },
-          { "id": 100, "type": "tf", "text": "س100: [صح أم خطأ - إعداد أ. محمد أمين نظير] يزداد نصف القطر الذري لعناصر السلسلة الانتقالية الأولى بزيادة العدد الذري بشكل مطرد ومستمر.", "options": ["صح", "خطأ"], "correct": 1 }
-        ];
+ const rawQuestions = [
+ { "id": 1, "type": "mcq", "text": "س1: عنصر انتقالي رئيسي في السلسلة الأولى، يحتوي أيونه X³⁺ على 3 إلكترونات مفردة في المستوى الفرعي 3d. ما هو العدد الذري لهذا العنصر؟", "options": ["23 (الفاناديوم)", "24 (الكروم)", "26 (الحديد)", "28 (النيكل)"], "correct": 2 },
+ { "id": 2, "type": "mcq", "text": "س2: بالاستعانة بمخطط الطاقة المقابل للتفاعل الاتجاه الطارد للحوارة: إذا كانت طاقة المتفاعلات 190 kJ وطاقة النواتج 120 kJ، وطاقة التنشيط للتفاعل العكسي غير المحفز 260 kJ، فما قيمة طاقة التنشيط للتفاعل الطردي بدون عامل حفاز؟", "svg": "<svg width=\"320\" height=\"180\" viewBox=\"0 0 320 180\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"30\" y1=\"150\" x2=\"300\" y2=\"150\" stroke=\"#34d399\" stroke-width=\"2\"/><line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"150\" stroke=\"#34d399\" stroke-width=\"2\"/><text x=\"10\" y=\"15\" fill=\"#34d399\" font-size=\"10\">الطاقة (kJ)</text><text x=\"240\" y=\"165\" fill=\"#34d399\" font-size=\"10\">اتجاه التفاعل</text><line x1=\"40\" y1=\"100\" x2=\"100\" y2=\"100\" stroke=\"#fbbf24\" stroke-width=\"3\"/><text x=\"45\" y=\"92\" fill=\"#fbbf24\" font-size=\"11\" font-weight=\"bold\">متفاعلات (190)</text><path d=\"M 100 100 Q 150 20 200 130\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2.5\" stroke-dasharray=\"4\"/><path d=\"M 100 100 Q 150 50 200 130\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2.5\"/><line x1=\"200\" y1=\"130\" x2=\"280\" y2=\"130\" stroke=\"#38bdf8\" stroke-width=\"3\"/><text x=\"210\" y=\"145\" fill=\"#38bdf8\" font-size=\"11\" font-weight=\"bold\">نواتج (120)</text><text x=\"125\" y=\"40\" fill=\"#ef4444\" font-size=\"10\">بدون حفاز (260)</text><text x=\"135\" y=\"70\" fill=\"#10b981\" font-size=\"10\">بحفاز (220)</text></svg>", "options": ["70 kJ", "190 kJ", "130 kJ", "260 kJ"], "correct": 1 },
+ { "id": 3, "type": "mcq", "text": "س3: أي مما يلي يعبر بصورة صحيحة عن الثبات النسبي للثبات الذري والثبات في نصف القطر لعناصر السلسلة الانتقالية الأولى والمبين بالشكل البياني؟", "svg": "<svg width=\"320\" height=\"150\" viewBox=\"0 0 320 150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"30\" y1=\"130\" x2=\"300\" y2=\"130\" stroke=\"#34d399\" stroke-width=\"2\"/><line x1=\"30\" y1=\"20\" x2=\"30\" y2=\"130\" stroke=\"#34d399\" stroke-width=\"2\"/><path d=\"M 40 30 Q 110 90 150 90 L 290 90\" fill=\"none\" stroke=\"#fbbf24\" stroke-width=\"3\"/><text x=\"35\" y=\"25\" fill=\"#fbbf24\" font-size=\"10\">Sc</text><text x=\"135\" y=\"110\" fill=\"#fbbf24\" font-size=\"10\">Cr</text><text x=\"275\" y=\"110\" fill=\"#fbbf24\" font-size=\"10\">Cu</text><text x=\"10\" y=\"15\" fill=\"#34d399\" font-size=\"10\">نصف القطر</text><text x=\"240\" y=\"145\" fill=\"#34d399\" font-size=\"10\">العدد الذري</text></svg>", "options": ["يقل نصف القطر بوضوح من Sc إلى Cr ثم يثبت تقريبًا من Cr إلى Cu نتيجة تساوي عاملي الشحنة الفعالة والتنافر", "يزداد نصف القطر بزيادة العدد الذري طردياً", "يثبت نصف القطر من Sc إلى Zn بشكل كلي", "يقل نصف القطر باستمرار حتى عنصر الخارصين Zn"], "correct": 0 },
+ { "id": 4, "type": "mcq", "text": "س4: التركيب الإلكتروني لأيون الفلز الانتقالي M في المركب M₂O₅ يحتوي على إلكترونات مفردة عددها:", "options": ["0 (دايامغناطيسي)", "1 إلكترون مفرد", "3 إلكترونات مفردة", "5 إلكترونات مفردة"], "correct": 0 },
+ { "id": 5, "type": "mcq", "text": "س5: أقصى حالة تأكسد تظهر في عناصر السلسلة الانتقالية الأولى تتعدى رقم المجموعة في عنصر:", "options": ["السكانديوم (Sc)", "المنجنيز (Mn)", "النحاس (Cu)", "الزنك (Zn)"], "correct": 2 },
+ { "id": 6, "type": "mcq", "text": "س6: عند تسخين أوكسالات الحديد II بمعزل عن الهواء ثم إضافة حمض الهيدروكلوريك المخفف إلى الناتج الصلب، يتكون:", "options": ["كلوريد حديد III وماء", "كلوريد حديد II وهيدروجين", "كلوريد حديد II وماء", "كلوريد حديد III وهيدروجين"], "correct": 2 },
+ { "id": 7, "type": "mcq", "text": "س7: عند تسخين كبريتات الحديد II (FeSO₄) تسخيناً شديداً، يتكون غازان هما SO₂ و SO₃ ورواسب حمراء. يرجع السبب في تكون أكسيد الحديد III وليس II إلى أن غاز SO₃ يعتبر:", "options": ["عامل اختزال قوي", "عامل مؤكسد قوي", "مادة دايامغناطيسية", "حمض مركز"], "correct": 1 },
+ { "id": 8, "type": "mcq", "text": "س8: يمكن التمييز بين حمض الكبريتيك المخفف وحمض الكبريتيك المركز الساخن باستخدام برادة الحديد عن طريق:", "options": ["تصاعد غاز SO₂ ذو الرائحة النفاثة مع المركز فقط", "تكون راسب أحمر مع المخفف", "عدم حدوث تفاعل مع المخفف", "انطلاق غاز CO₂ في الحالتين"], "correct": 0 },
+ { "id": 9, "type": "mcq", "text": "س9: سبيكة الصلب الذي لا يصدأ (الستانلس ستيل) تتكون من الحديد و....... وهي من أنواع السبائك .......", "options": ["الكروم / الاستبدالية", "الكربون / البينية", "الألومنيوم / بين الفلزية", "المنجنيز / البينية"], "correct": 0 },
+ { "id": 10, "type": "mcq", "text": "س10: السبيكة الناتجة من التفاعل الكيميائي بين عنصرين لا يقعان في مجموعة واحدة ولها صيغة كيميائية محددة لا تخضع لقوانين التكافؤ هي سبيكة:", "options": ["بينية", "استبدالية", "بين فلزية (مثل السيمينتيت Fe₃C)", "البرونز"], "correct": 2 },
+ { "id": 11, "type": "mcq", "text": "س11: تركيز خام الحديد يهدف إلى زيادة نسبة الحديد عن طريق فصل الشوائب بالخواص الفيزيائية والميكانيكية مثل: ", "options": ["التوتر السطحي والفصل المغناطيسي والكهربي", "التحميص والتكسير", "الاختزال بالغاز المائي", "الصهر الكهربي"], "correct": 0 },
+ { "id": 12, "type": "mcq", "text": "س12: العامل المختزل في الفرن العالي هو غاز أول أكسيد الكربون الناتج من تفاعل فحم الكوك مع: ", "options": ["الأكسجين ثم ثاني أكسيد الكربون", "غاز الميثان بخار الماء", "الهيدروجين", "النيتروجين"], "correct": 0 },
+ { "id": 13, "type": "mcq", "text": "س13: العامل المختزل في فرن ميدركس هو الغاز المائي المحضر من تفاعل غاز الميثان CH₄ مع: ", "options": ["CO₂ وبخار الماء H₂O", "الأكسجين النقي", "فحم الكوك", "الهيدروجين"], "correct": 0 },
+ { "id": 14, "type": "mcq", "text": "س14: عند مركب K₂Cr₂O₇ تكون حالة تأكسد الكروم فيه تساوي +6، ولون هذا المركب أورانج (برتقالي) بسبب امتصاصه للون: ", "options": ["الأزرق المتمم للبرتقالي", "الأحمر", "الأخضر", "الأصفر"], "correct": 0 },
+ { "id": 15, "type": "mcq", "text": "س15: جميع المركبات التالية ملونة وبارامغناطيسية ما عدا: ", "options": ["ScCl₃", "FeCl₃", "CuSO₄", "VCl₃"], "correct": 0 },
+ { "id": 16, "type": "mcq", "text": "س16: أقصى عزم مغناطيسي في ذرات عناصر السلسلة الانتقالية الأولى يوجد في ذرة عنصر: ", "options": ["الحديد ₂₆Fe", "المنجنيز ₂₅Mn", "الكروم ₂₄Cr", "النحاس ₂₉Cu"], "correct": 2 },
+ { "id": 17, "type": "mcq", "text": "س17: يسهل تأكسد أيون الحديد II إلى أيون الحديد III لأن التركيب الإلكتروني لأيون الحديد III ينتهي بـ: ", "options": ["3d⁵ أكثر استقراراً وشبه مكتمل", "3d⁶", "3d¹⁰", "4s²"], "correct": 0 },
+ { "id": 18, "type": "mcq", "text": "س18: يصعب تأكسد أيون المنجنيز II إلى المنجنيز III لأن التركيب الإلكتروني لأيون M²⁺ ينتهي بـ: ", "options": ["3d⁵ مستقر جداً", "3d⁴", "3d⁶", "4s¹"], "correct": 0 },
+ { "id": 19, "type": "mcq", "text": "س19: حمض النيتريك المركز يسبب خمولاً كيميائياً للحديد بسبب تكون: ", "options": ["طبقة غير مسامية من الأكسيد على سطح الحديد تمنع استمرار التفاعل", "راسب أسود من كبريتيد الحديد", "غاز ثاني أكسيد الكبريت", "سبائك بينية"], "correct": 0 },
+ { "id": 20, "type": "mcq", "text": "س20: لإزالة طبقة الخمول الكيميائي عن سطح الحديد يمكن استخدام: ", "options": ["الحك الميكانيكي أو إضافه حمض HCl المخفف", "التسخين الشديد فقط", "إضافة حمض H₂SO₄ المركز", "الماء المقطر"], "correct": 0 },
+ { "id": 21, "type": "mcq", "text": "س21: عند تفاعل الحديد مع غاز الكلور Cl₂ يتكون كلوريد الحديد III وليس كلوريد الحديد II لأن غاز الكلور عامل: ", "options": ["مؤكسد قوي", "مختزل قوي", "حفاز", "متردد"], "correct": 0 },
+ { "id": 22, "type": "mcq", "text": "س22: عند تفاعل الحديد مع الكبريت S بالتسخين يتكون: ", "options": ["FeS (كبريتيد الحديد II)", "Fe₂S₃", "FeSO₄", "Fe₂(SO₄)₃"], "correct": 0 },
+ { "id": 23, "type": "mcq", "text": "س23: تسخين هيدروكسيد الحديد III عند درجة حرارة أعلى من 200°C ينتج عنه: ", "options": ["أكسيد الحديد III وبخار ماء", "أكسيد الحديد II وماء", "أكسيد حديد مغناطيسي", "حديد نقي"], "correct": 0 },
+ { "id": 24, "type": "mcq", "text": "س24: يمكن الحصول على أكسيد الحديد II بنسبة نقية من اختزال أكسيد الحديد III بـ CO عند درجة حرارة: ", "options": ["400°C - 700°C", "230°C - 300°C", "أعلى من 700°C", "100°C"], "correct": 0 },
+ { "id": 25, "type": "mcq", "text": "س25: اختزال أكسيد الحديد III أو أكسيد الحديد المغناطيسي أو الهيماتيت عند درجة حرارة أعلى من 700°C ينتج: ", "options": ["الحديد النقي Fe", "أكسيد الحديد II", "أكسيد الحديد المغناطيسي", "السيدريت"], "correct": 0 },
+ { "id": 26, "type": "mcq", "text": "س26: عند إمرار بخار الماء الساخن على الحديد عند 500°C يتكون: ", "options": ["أكسيد حديد مغناطيسي Fe₃O₄ وغاز H₂", "أكسيد حديد III Fe₂O₃", "أكسيد حديد II FeO", "هيدروكسيد حديد III"], "correct": 0 },
+ { "id": 27, "type": "mcq", "text": "س27: يتفاعل أكسيد الحديد المغناطيسي Fe₃O₄ مع الأحماض المركزة الساخنة يعطي مزيجاً من مادتين هما: ", "options": ["أملاح حديد II وأملاح حديد III وماء (لأنه أكسيد مختلط)", "أملاح حديد II فقط وماء", "أملاح حديد III فقط وغاز هيدروجين", "حديد نقي وماء"], "correct": 0 },
+ { "id": 28, "type": "mcq", "text": "س28: المادة التي تمتص اللون الأحمر من الضوء الأبيض تظهر للعين باللون المتمم وهو: ", "options": ["الأخضر", "الأزرق", "الأصفر", "البنفسجي"], "correct": 0 },
+ { "id": 29, "type": "mcq", "text": "س29: عنصر السكانديوم ₂₁Sc يمتلك حالة تأكسد واحدة فقط وهي +3، ويكون مركباته ككل: ", "options": ["دايامغناطيسية وغير ملونة", "بارامغناطيسية وملونة", "بارامغناطيسية وغير ملونة", "دايامغناطيسية وملونة"], "correct": 0 },
+ { "id": 30, "type": "mcq", "text": "س30: العنصر الانتقالي الذي يستبدل به عظام المفصل الصناعي لعدم رفض الجسم له وغير سام هو: ", "options": ["التيتانيوم (Ti)", "السكانديوم (Sc)", "الفاناديوم (V)", "النيكل (Ni)"], "correct": 0 },
+ { "id": 31, "type": "mcq", "text": "س31: تركيبة سبيكة الديورالومين تتكون من الألومنيوم والنيكل أو الألومنيوم و: ", "options": ["النحاس", "الحديد", "الزنك", "الذهب"], "correct": 0 },
+ { "id": 32, "type": "mcq", "text": "س32: تتشابه عناصر المجموعات الرأسية الثامنة VIII في الجدول الدوري في أن: ", "options": ["التشابه الأفقي أكبر من التشابه الرأسي", "التشابه الرأسي أكبر من الأفقي", "جميعها عناصر غير انتقالية", "تمتلك حالة تأكسد تعادل رقم المجموعة"], "correct": 0 },
+ { "id": 33, "type": "mcq", "text": "س33: عدد الإلكترونات المفردة في أيون الكروم Cr³⁺ يساوي: ", "options": ["3 إلكترونات مفردة في 3d", "1 إلكترون مفرد", "5 إلكترونات مفردة", "0 إلكترون مفرد"], "correct": 0 },
+ { "id": 34, "type": "mcq", "text": "س34: المركب المستقر المستخدم كمادة مؤكسدة ومطهرة في الطبية هو: ", "options": ["برمنجنات البوتاسيوم KMnO₄", "ثاني أكسيد التيتانيوم TiO₂", "كبريتات النحاس CuSO₄", "أكسيد الخارصين ZnO"], "correct": 0 },
+ { "id": 35, "type": "mcq", "text": "س35: عنصر انتقالي X يقع في السلسلة الأولى يحتوي على إلكترون واحد مفرد في حالته الذرية وجميع مركباته غير ملونة. هذا العنصر هو: ", "options": ["السكانديوم Sc", "النحاس Cu", "الزنك Zn", "التيتانيوم Ti"], "correct": 0 },
+ { "id": 36, "type": "mcq", "text": "س36: أي المحاليل الآتية يظهر باللون الأزرق؟ ", "options": ["CuSO₄(aq)", "FeSO₄(aq)", "ZnSO₄(aq)", "ScCl₃(aq)"], "correct": 0 },
+ { "id": 37, "type": "mcq", "text": "س37: من مركبات التيتانيوم المستخدمة في مستحضرات الحماية من أشعة الشمس الدقيقة نانوية الحجم: ", "options": ["TiO₂", "TiCl₄", "Ti₂O₃", "TiSO₄"], "correct": 0 },
+ { "id": 38, "type": "mcq", "text": "س38: السبيكة المستخدمة في صناعة ملفات التسخين والأفران الكهربائية لمقاومتها للتآكل وهي ساخنة تتكون من: ", "options": ["النيكل والكروم", "الحديد والنيكل", "الألومنيوم والتيتانيوم", "النحاس والخارصين"], "correct": 0 },
+ { "id": 39, "type": "mcq", "text": "س39: خام الحديد ذو اللون الأصفر والمتبلور الهيدراتي هو خام: ", "options": ["الليلمونيت 2Fe₂O₃·3H₂O", "الهيماتيت Fe₂O₃", "المغنيتيت Fe₃O₄", "السيدريت FeCO₃"], "correct": 0 },
+ { "id": 40, "type": "mcq", "text": "س40: عند تحميص خام السيدريت FeCO₃ في الهواء الجوي، فإن المنتج النهائي الصلب ذو اللون الأحمر هو: ", "options": ["أكسيد الحديد III (Fe₂O₃)", "أكسيد الحديد II (FeO)", "أكسيد الحديد المغناطيسي (Fe₃O₄)", "الحديد النقي (Fe)"], "correct": 0 },
+ { "id": 41, "type": "mcq", "text": "س41: طاقة التنشيط في التفاعلات الكيميائية تقل عند إضافة عامل حفاز لأن العامل الحفاز يوفر مساراً بديلًا ذو طاقة تنشيط: ", "options": ["أقل", "أعلى", "متساوية", "معدومة تماماً"], "correct": 0 },
+ { "id": 42, "type": "mcq", "text": "س42: طاقة التفاعل (ΔH) تحسب من القانون: ", "options": ["طاقة النواتج - طاقة المتفاعلات", "طاقة المتفاعلات - طاقة النواتج", "طاقة التنشيط العكسي + طاقة التنشيط الطردي", "طاقة المتفاعلات + طاقة النواتج"], "correct": 0 },
+ { "id": 43, "type": "mcq", "text": "س43: يتفاعل FeO مع حمض HCl المخفف لينتج كلوريد حديد II وماء، بينما يتفاعل Fe₂O₃ فقط مع الأحماض المركزة الساخنة بسبب: ", "options": ["زيادة الصفة القاعدة لـ FeO وثبات Fe₂O₃ مع الشحنة العالية للحديد III", "صغر حجم FeO", "تفاعل Fe₂O₃ مع الماء", "كون Fe₂O₃ مادة غازية"], "correct": 0 },
+ { "id": 44, "type": "mcq", "text": "س44: عند إضافة حمض الهيدروكلوريك المخفف إلى خليط من برادة الحديد وأكسيد الحديد III يتفاعل الحمض مع: ", "options": ["برادة الحديد فقط وينطلق غاز H₂", "أكسيد الحديد III فقط", "كلاهما بفس السرعة", "لا يحدث تفاعل لكلاهما"], "correct": 0 },
+ { "id": 45, "type": "mcq", "text": "س45: الصيغة الكيميائية لمركب السيمينتيت هي Fe₃C وتعتبر سبيكة نوعها: ", "options": ["بينفلزية صلبة جداً", "بينية", "استبدالية", "محلول جامد"], "correct": 0 },
+ { "id": 46, "type": "mcq", "text": "س46: عند تسخين المغنيتيت Fe₃O₄ في الهواء الجوي مع الأكسجين يتحول لون الناتج للون الأحمر متكوناً: ", "options": ["Fe₂O₃ (أكسيد حديد III)", "FeO", "FeSO₄", "Fe(OH)₃"], "correct": 0 },
+ { "id": 47, "type": "mcq", "text": "س47: التوزيع الإلكتروني لأيون الكوبالت Co²⁺ (العدد الذري 27) هو: ", "options": ["[Ar] 3d⁷", "[Ar] 4s² 3d⁵", "[Ar] 3d⁸", "[Ar] 4s¹ 3d⁶"], "correct": 0 },
+ { "id": 48, "type": "mcq", "text": "س48: أي العناصر الانتقالية التالية يكون جهد تأينه الرابع مرتفعاً جداً بسبب كسر مستوى طاقة مكتمل؟ ", "options": ["السكانديوم ²¹Sc", "التيتانيوم ²²Ti", "الفاناديوم ²³V", "المنجنيز ²₅Mn"], "correct": 0 },
+ { "id": 49, "type": "mcq", "text": "س49: يرجع الثبات النسبي لأحجام ذرات العناصر الانتقالية من الكروم للنحاس إلى وجود عاملين متعاكسين هما زيادة شحنة النواة الفعالة و: ", "options": ["زيادة قوى التنافر بين إلكترونات المستوى 3d", "نقص عدد المستويات", "زيادة الكتلة الذرية فقط", "انخفاض درجة الانصهار"], "correct": 0 },
+ { "id": 50, "type": "mcq", "text": "س50: السبيكة المستخدمة في عمل العملات المعدنية النقدية هي سبيكة استبدالية تتكون من: ", "options": ["النحاس والذهب (أو النحاس والنيكل)", "الحديد والكربون", "الألومنيوم والسكانديوم", "الرصاص والذهب"], "correct": 0 },
+ { "id": 51, "type": "mcq", "text": "س51: أي المركبات الآتية يحتوي على أعلى قيمة للعزم المغناطيسي؟ ", "options": ["FeCl₃ (أيون Fe³⁺ يحتوي 5 إلكترونات مفردة)", "FeCl₂", "CuSO₄", "TiCl₄"], "correct": 0 },
+ { "id": 52, "type": "mcq", "text": "س52: يضاف عنصر الفاناديوم إلى الصلب لصناعة زمبركات السيارات بسبب تشكيله سبيكة تتميز بـ: ", "options": ["قساوة عالية ومقاومة كبيرة للتآكل", "خفة الوزن وشدة الصلابة", "التوصيل الكهربي العالي", "مقاومة الأحماض الساخنة"], "correct": 0 },
+ { "id": 53, "type": "mcq", "text": "س53: تتميز السلسلة الانتقالية الأولى بصلابة فلزاتها وارتفاع درجات انصهارها وغليانها بسبب قوة: ", "options": ["الرابطة الفلزية لمشاركة إلكترونات 4s و 3d في تكوينها", "الرابطة الأيونية", "التجاذب البين جزيئي", "الروابط الهيدروجينية"], "correct": 0 },
+ { "id": 54, "type": "mcq", "text": "س54: يمكن فصل برادة الحديد عن مسحوق الخارصين بواسطة: ", "options": ["المغناطيس (الحديد بارامغناطيسي والخارصين دايامغناطيسي)", "إضافة ماء مقطر", "الترشيح البسيط", "التسخين في الهواء"], "correct": 0 },
+ { "id": 55, "type": "mcq", "text": "س55: عند إضافة حمض الهيدروكلوريك المخفف إلى كبريتيد الحديد II ينطلق غاز H₂S ذو الرائحة الكريهة ويتميز بـ: ", "options": ["يسود ورقة مبللة بخلات الرصاص II", "يعكر ماء الجير الرائق", "يخضر ورقة كبريتات النحاس", "يشتعل بفرقعة"], "correct": 0 },
+ { "id": 56, "type": "mcq", "text": "س56: الأيون الأكثر استقراراً كيميائياً بين الأيونات الآتية هو: ", "options": ["Fe³⁺", "Fe²⁺", "Mn³⁺", "Cr²⁺"], "correct": 0 },
+ { "id": 57, "type": "mcq", "text": "س57: التوزع الإلكتروني لذرة الخارصين ₃₀Zn ينتهي بـ 4s² 3d¹⁰، ولذلك يعتبـر الخارصين عنصر: ", "options": ["غير انتقالي لأن المستوى الفرعي 3d مكتمل في الحالة الذرية وحالة التأكسد الوحيدة +2", "انتقالي رئيسي", "انتقالي داخلي", "متردد"], "correct": 0 },
+ { "id": 58, "type": "mcq", "text": "س58: النحاس ₂₉Cu يعتبر عنصراً انتقاليًا لأن المستوى الفرعي 3d يكون غير مكتمل بالالكترونات في حالة التأكسد: ", "options": ["+2 و +3", "0 فقط", "+1 فقط", "-1"], "correct": 0 },
+ { "id": 59, "type": "mcq", "text": "س59: أكسيد المنجنيز IV (MnO₂) يستخدم في البطاريات الجافة كـ: ", "options": ["عامل مؤكسد قوي", "عامل مختزل", "الكتروليت مائي", "مادة دايامغناطيسية"], "correct": 0 },
+ { "id": 60, "type": "mcq", "text": "س60: للتخلص من الشوائب مثل الكبريت والفوسفور في خامات الحديد عن طريق أكسدتها وتحويلها لغازات يتم إجراء عملية: ", "options": ["التحميص في الهواء", "التكسير واللبد", "التجميع والتلبيد", "الترشيح والتركيز"], "correct": 0 },
+ { "id": 61, "type": "mcq", "text": "س61: عند تسخين هيدروكسيد الحديد III ويتكون أكسيد الحديد III، ثم اختزال الناتج بواسطة غاز H₂ عند 500°C، نحصل على: ", "options": ["أكسيد الحديد II (FeO)", "حديد نقي Fe", "أكسيد حديد مغناطيسي Fe₃O₄", "سيدريت"], "correct": 0 },
+ { "id": 62, "type": "mcq", "text": "س62: مركب خام الهيماتيت صيغته الكيميائية Fe₂O₃ ونسبة الحديد فيه تتراوح تقريباً بين: ", "options": ["50% - 60%", "20% - 30%", "80% - 90%", "10% - 15%"], "correct": 0 },
+ { "id": 63, "type": "mcq", "text": "س63: التفاعل التالي: 2FeSO₄ ➔ Fe₂O₃ + SO₂ + SO₃ يعتبر تفاعل: ", "options": ["انحلال حراري وأكسدة واختزال ذاتي", "اتحاد مباشر", "إحلال بسيط", "ترسيب مائي"], "correct": 0 },
+ { "id": 64, "type": "mcq", "text": "س64: عند إضافة محلول النشادر NH₄OH إلى محلول كلوريد الحديد III يتكون راسب: ", "options": ["بني محمر من Fe(OH)₃", "أبيض مخضر", "أسود", "أصفر جيلاتيني"], "correct": 0 },
+ { "id": 65, "type": "mcq", "text": "س65: عنصر من السلسلة الانتقالية الأولى جميع مركباته دايامغناطيسية وغير ملونة وحالة تأكسده الوحيدة +3 هو: ", "options": ["السكانديوم Sc", "الخارصين Zn", "التيتانيوم Ti", "الحديد Fe"], "correct": 0 },
+ { "id": 66, "type": "mcq", "text": "س66: المركب Cr₂O₃ يمتلك لوناً أخضر ويستخدم في صناعة: ", "options": ["الأصباغ والدهانات", "المطاط", "مستحضرات التجميل", "البطاريات الجافة"], "correct": 0 },
+ { "id": 67, "type": "mcq", "text": "س67: السبيكة البينية تتكون عندما تدخل ذرات فلز أصغر حجماً في: ", "options": ["المسافات البينية للشبكة الكريستالية للفلز الأصلي لمنع الانزلاق", "روابط كيميائية بينية", "مواقع الذرات الأصلية بالكامل", "تفاعل استبدالي"], "correct": 0 },
+ { "id": 68, "type": "mcq", "text": "س68: لتمييز سبيكة الحديد والكربون البينية عن سبيكة السيمينتيت Fe₃C يُضاف حمض HCl مخفف، في سبيكة السيمينتيت يتصاعد غازات هيدروكربونية ذات رائحة كريهة و: ", "options": ["تذوب السبيكة بالكامل بدون متبقي كربون أسود", "يترسب الكربون الأسود النقي", "لا يتفاعل الحمض معها", "يتكون راسب بني"], "correct": 0 },
+ { "id": 69, "type": "mcq", "text": "س69: كل العناصر الآتية يمكنها تكوين حالات تأكسد تتعدى عدد إلكترونات المستوى الفرعي 4s ما عدا: ", "options": ["السكانديوم Sc (يفقد 4s² و 3d¹ دفعة واحدة)", "الفاناديوم V", "الكروم Cr", "المنجنيز Mn"], "correct": 0 },
+ { "id": 70, "type": "mcq", "text": "س70: تتوقف المادة الانتقالية عن الامتصاص للضوء وتظهر باللون الأبيض إذا كانت: ", "options": ["تعكس جميع ألوان الضوء المرئي بدون امتصاص أي منها", "تمتص جميع ألوان الضوء المرئي", "تحتوي 5 إلكترونات مفردة", "تحتوي إلكتروناً واحداً مفردًا"], "correct": 0 },
+ { "id": 71, "type": "mcq", "text": "س71: النيكل المجزأ يستخدم كعامل حفاز في عملية: ", "options": ["درجة الزيوت النباتية تحويلها لسماد صلبه", "صناعة النشادر", "اختزال خام الحديد", "تحضير حمض الكبريتيك"], "correct": 0 },
+ { "id": 72, "type": "mcq", "text": "س72: خام السيدريت FeCO₃ لونه رمادي مصفر، عند تحميصه بشدة يطرد غاز: ", "options": ["ثاني أكسيد الكربون CO₂", "ثاني أكسيد الكبريت SO₂", "بخار الماء H₂O", "الأكسجين O₂"], "correct": 0 },
+ { "id": 73, "type": "mcq", "text": "س73: أي من الكاتيونات الآتية يعتبر دايامغناطيسي وغير ملون في المحاليل المائية؟ ", "options": ["Zn²⁺", "Fe²⁺", "Cu²⁺", "Cr³⁺"], "correct": 0 },
+ { "id": 74, "type": "mcq", "text": "س74: عنصر انتقالي رئيسي يمتلك التركيب الإلكتروني [Ar] 4s¹ 3d¹⁰ يقع في المجموعة الرأسية: ", "options": ["1B (المجموعة 11)", "2B", "6B", "8"], "correct": 0 },
+ { "id": 75, "type": "mcq", "text": "س75: التفاعل التالي: Fe₂O₃ + 3CO ➔ 2Fe + 3CO₂ يمثل عملية اختزال تتم في الفرن العالي عند درجة حرارة: ", "options": ["أعلى من 700°C", "200°C - 300°C", "400°C - 700°C", "100°C"], "correct": 0 },
+ { "id": 76, "type": "mcq", "text": "س76: أي الأيونات التالية ينتهي بالتركيب الإلكتروني 3d⁴؟ ", "options": ["Cr²⁺ و Mn³⁺", "Fe²⁺ و Co³⁺", "Ti³⁺ و V²⁺", "Cu²⁺ و Zn²⁺"], "correct": 0 },
+ { "id": 77, "type": "mcq", "text": "س77: لتغطية المقابض الحديدية بطبقة من النحاس الأصفر نستخدم طريقة الترسيب الكهربي لمحلول يحتوي على أيونات: ", "options": ["النحاس والخارصين معا", "النحاس والحديد", "الذهب والنحاس", "الزنك والنيكل"], "correct": 0 },
+ { "id": 78, "type": "mcq", "text": "س78: يتفاعل أكسيد الحديد II مع حمض الكبريتيك المخفف وينتج بلورات خضراء من: ", "options": ["كبريتات الحديد II (FeSO₄) وماء", "كبريتات الحديد III وماء", "حديد نقي وغاز H₂", "أكسيد حديد مغناطيسي"], "correct": 0 },
+ { "id": 79, "type": "mcq", "text": "س79: النسبة بين عدد الأوربيتالات النصف مكتملة في ذرة الكروم ₂₄Cr إلى عددها في ذرة المنجنيز ₂₅Mn هي: ", "options": ["6 : 5", "5 : 5", "1 : 1", "4 : 5"], "correct": 0 },
+ { "id": 80, "type": "mcq", "text": "س80: أي الطرق الآتية تستخدم في تحضير حمض الكبريتيك صناعياً باستخدام خامس أكسيد الفاناديوم V₂O₅ كعامل حفاز عند 450°C؟ ", "options": ["طريقة التلامس", "طريقة هابر-بوش", "طريقة فيشر-تروبش", "طريقة الترسيب الكهربي"], "correct": 0 },
+ { "id": 81, "type": "mcq", "text": "س81: طريقة فيشر-تروبش تستخدم الحديد المجزأ كعامل حفاز لتحويل الغاز المائي إلى: ", "options": ["وقود سائل هيدروكربوني", "غاز غاز الميثان", "سماد نيتروجيني", "حمض النتريك"], "correct": 0 },
+ { "id": 82, "type": "mcq", "text": "س82: السبيكة التي تتكون من عنصرين لهما نفس القطر والتركيب الكريستالي والخواص الكيميائية هي سبيكة: ", "options": ["استبدالية", "بينية", "بين فلزية", "مركبة"], "correct": 0 },
+ { "id": 83, "type": "mcq", "text": "س83: عند تعريض برادة الحديد لغاز الكلور Cl₂ ثم إضافة محلول هيدروكسيد الصوديوم NaOH للناتج، يتكون راسب: ", "options": ["بني محمر Fe(OH)₃", "أبيض مخضر Fe(OH)₂", "أسود FeS", "أصفر"], "correct": 0 },
+ { "id": 84, "type": "mcq", "text": "س84: عدد إلكترونات المستوى الفرعي 3d في كاتيون الكوبالت في المركب CoCl₃ هو: ", "options": ["6 إلكترونات", "7 إلكترونات", "5 إلكترونات", "3 إلكترونات"], "correct": 0 },
+ { "id": 85, "type": "mcq", "text": "س85: يتفاعل الحديد مع الأحماض المخففة متصاعداً غاز الهيدروجين والذي يعمل كـ: ", "options": ["عامل مختزل يمنع تكون أملاح الحديد III", "عامل مؤكسد قوي", "عامل حفاز", "حمض جديد"], "correct": 0 },
+ { "id": 86, "type": "mcq", "text": "س86: أي العناصر التالية يمتلك أعلى درجة انصهار في السلسلة الانتقالية الأولى؟ ", "options": ["الكروم Cr (بسبب قوة الرابطة الفلزية بـ 6 إلكترونات تكافؤ)", "السكانديوم Sc", "الحديد Fe", "النحاس Cu"], "correct": 0 },
+ { "id": 87, "type": "mcq", "text": "س87: عند إمرار غاز أول أكسيد الكربون CO على الهيماتيت عند 250°C يكون الناتج الرئيسي هو: ", "options": ["أكسيد الحديد المغناطيسي Fe₃O₄", "أكسيد الحديد II FeO", "حديد Fe", "سيدريت"], "correct": 0 },
+ { "id": 88, "type": "mcq", "text": "س88: الكتلة الذرية لعناصر السلسلة الانتقالية الأولى تزداد بزيادة العدد الذري ويشذ عن ذلك عنصر: ", "options": ["النيكل ₂₈Ni بمتوسط كتلة 58.7u لوجود 5 نظائر مستقرة", "الكروم", "الكوبالت", "النحاس"], "correct": 0 },
+ { "id": 89, "type": "mcq", "text": "س89: المادة التي تتجاذب مع المجال المغناطيسي الخارجي نتيجة وجود إلكترونات مفردة في أوربيتالاتها تسمى مادة: ", "options": ["بارامغناطيسية", "دايامغناطيسية", "عازلة", "مترددة"], "correct": 0 },
+ { "id": 90, "type": "mcq", "text": "س90: المخطط التأكسدي الآتي: Fe ➔ Fe₃O₄ ➔ Fe₂O₃ ➔ FeSO₄ يمثل سلسلة تحويلات كيميائية للحديد، التفاعل الأخير من Fe₂O₃ إلى FeSO₄ يتطلب أولاً: ", "options": ["اختزال Fe₂O₃ إلى FeO بواسطة CO عند 400-700°C ثم إضافة H₂SO₄ مخفف", "إضافة H₂SO₄ مخفف مباشرة", "التسخين مع الكبريت", "الأكسدة بالأكسجين"], "correct": 0 },
+ { "id": 91, "type": "tf", "text": "س91: [صح أم خطأ] أكسيد الحديد المغناطيسي Fe₃O₄ يعتبر أكسيدًا مختلطاً (مركباً) يتكون من FeO و Fe₂O₃.", "options": ["صح", "خطأ"], "correct": 0 },
+ { "id": 92, "type": "tf", "text": "س92: [صح أم خطأ] يحل عنصر السكانديوم Sc محل هيدروجين الماء بشدة بعنف شديد لشدة نشاطه الكيميائي.", "options": ["صح", "خطأ"], "correct": 0 },
+ { "id": 93, "type": "tf", "text": "س93: [صح أم خطأ] سبيكة الديورالومين تتكون من الألومنيوم والنيكل وهي سبيكة بينية.", "options": ["صح", "خطأ"], "correct": 1 },
+ { "id": 94, "type": "tf", "text": "س94: [صح أم خطأ] الخارصين Zn يعتبر عنصراً انتقاليًا في حالته الذرية وفي حالته التأكسدية الوحيدة +2.", "options": ["صح", "خطأ"], "correct": 1 },
+ { "id": 95, "type": "tf", "text": "س95: [صح أم خطأ] حمض النتريك المركز يسبب خمولاً كيميائياً ظاهرياً للحديد لتكون طبقة أكسيد واقية غير مسامية.", "options": ["صح", "خطأ"], "correct": 0 },
+ { "id": 96, "type": "tf", "text": "س96: [صح أم خطأ] يتفاعل الحديد مع حمض الهيدروكلوريك المخفف وينتج كلوريد حديد III وغاز الهيدروجين.", "options": ["صح", "خطأ"], "correct": 1 },
+ { "id": 97, "type": "tf", "text": "س97: [صح أم خطأ] العزم المغناطيسي لأيون الحديد III أكبر من العزم المغناطيسي لأيون الحديد II.", "options": ["صح", "خطأ"], "correct": 0 },
+ { "id": 98, "type": "tf", "text": "س98: [صح أم خطأ] عند تسخين أوكسالات الحديد II بمعزل عن الهواء يتكون أكسيد حديد III وغاز CO وغاز CO₂.", "options": ["صح", "خطأ"], "correct": 1 },
+ { "id": 99, "type": "tf", "text": "س99: [صح أم خطأ] طريقة التلامس تستخدم خامس أكسيد الفاناديوم V₂O₅ كعامل حفاز عند 450°C لتصنيع حمض الكبريتيك.", "options": ["صح", "خطأ"], "correct": 0 },
+ { "id": 100, "type": "tf", "text": "س100: [صح أم خطأ] يزداد نصف القطر الذري لعناصر السلسلة الانتقالية الأولى بزيادة العدد الذري بشكل مطرد ومستمر.", "options": ["صح", "خطأ"], "correct": 1 }
+ ];
 
-        let questionsData = [];
-        let currentIdx = 0;
-        let userAnswers = [];
-        let timerSeconds = 120 * 60;
-        let timerInterval = null;
-        let studentInfo = { name: '', code: '' };
+ let questionsData = [];
+ let currentIdx = 0;
+ let userAnswers = [];
+ let timerSeconds = 120 * 60;
+ let timerInterval = null;
+ let studentInfo = { name: '', code: '' };
 
-        function startExam(e) {
-            e.preventDefault();
-            studentInfo.name = document.getElementById('student-name').value.trim();
-            studentInfo.code = document.getElementById('student-code').value.trim();
+ function startExam(e) {
+ e.preventDefault();
+ studentInfo.name = document.getElementById('student-name').value.trim();
+ studentInfo.code = document.getElementById('student-code').value.trim();
 
-            questionsData = [...rawQuestions];
-            userAnswers = new Array(questionsData.length).fill(null);
+ questionsData = [...rawQuestions];
+ userAnswers = new Array(questionsData.length).fill(null);
 
-            document.getElementById('display-student-name').innerText = studentInfo.name;
-            document.getElementById('login-section').style.display = 'none';
-            document.getElementById('exam-section').style.display = 'block';
+ document.getElementById('display-student-name').innerText = studentInfo.name;
+ document.getElementById('login-section').style.display = 'none';
+ document.getElementById('exam-section').style.display = 'block';
 
-            examStarted = true;
-            renderGrid();
-            loadQuestion(0);
-            startTimer();
-        }
+ examStarted = true;
+ renderGrid();
+ loadQuestion(0);
+ startTimer();
+ }
 
-        function startTimer() {
-            timerInterval = setInterval(() => {
-                if (timerSeconds <= 0) {
-                    clearInterval(timerInterval);
-                    submitExam();
-                    return;
-                }
-                timerSeconds--;
-                const h = Math.floor(timerSeconds / 3600);
-                const m = Math.floor((timerSeconds % 3600) / 60).toString().padStart(2, '0');
-                const s = (timerSeconds % 60).toString().padStart(2, '0');
-                document.getElementById('timer-display').innerText = `${h > 0 ? h + ':' : ''}${m}:${s}`;
-            }, 1000);
-        }
+ function startTimer() {
+ timerInterval = setInterval(() => {
+ if (timerSeconds <= 0) {
+ clearInterval(timerInterval);
+ submitExam();
+ return;
+ }
+ timerSeconds--;
+ const h = Math.floor(timerSeconds / 3600);
+ const m = Math.floor((timerSeconds % 3600) / 60).toString().padStart(2, '0');
+ const s = (timerSeconds % 60).toString().padStart(2, '0');
+ document.getElementById('timer-display').innerText = `${h > 0 ? h + ':' : ''}${m}:${s}`;
+ }, 1000);
+ }
 
-        function renderGrid() {
-            const grid = document.getElementById('question-grid');
-            grid.innerHTML = '';
-            for (let i = 0; i < questionsData.length; i++) {
-                const btn = document.createElement('div');
-                btn.className = `grid-btn ${i === currentIdx ? 'active' : ''} ${userAnswers[i] !== null ? 'answered' : ''}`;
-                btn.innerText = i + 1;
-                btn.onclick = () => loadQuestion(i);
-                grid.appendChild(btn);
-            }
-        }
+ function renderGrid() {
+ const grid = document.getElementById('question-grid');
+ grid.innerHTML = '';
+ for (let i = 0; i < questionsData.length; i++) {
+ const btn = document.createElement('div');
+ btn.className = `grid-btn ${i === currentIdx ? 'active' : ''} ${userAnswers[i] !== null ? 'answered' : ''}`;
+ btn.innerText = i + 1;
+ btn.onclick = () => loadQuestion(i);
+ grid.appendChild(btn);
+ }
+ }
 
-        function loadQuestion(index) {
-            currentIdx = index;
-            const q = questionsData[index];
+ function loadQuestion(index) {
+ currentIdx = index;
+ const q = questionsData[index];
 
-            document.getElementById('question-number-lbl').innerText = `السؤال ${index + 1} من ${questionsData.length}`;
-            document.getElementById('question-type-lbl').innerText = q.type === 'mcq' ? 'اختيار من متعدد' : 'صح أم خطأ';
-            document.getElementById('question-text').innerText = q.text;
+ document.getElementById('question-number-lbl').innerText = `السؤال ${index + 1} من ${questionsData.length}`;
+ document.getElementById('question-type-lbl').innerText = q.type === 'mcq' ? 'اختيار من متعدد' : 'صح أم خطأ';
+ document.getElementById('question-text').innerText = q.text;
 
-            const diagramBox = document.getElementById('diagram-box');
-            if (q.svg) {
-                diagramBox.innerHTML = `<div class="diagram-container">${q.svg}</div>`;
-            } else {
-                diagramBox.innerHTML = '';
-            }
+ const diagramBox = document.getElementById('diagram-box');
+ if (q.svg) {
+ diagramBox.innerHTML = `<div class="diagram-container">${q.svg}</div>`;
+ } else {
+ diagramBox.innerHTML = '';
+ }
 
-            const optsBox = document.getElementById('options-container');
-            optsBox.innerHTML = '';
+ const optsBox = document.getElementById('options-container');
+ optsBox.innerHTML = '';
 
-            q.options.forEach((optText, optIdx) => {
-                const isSelected = userAnswers[index] === optIdx;
-                const item = document.createElement('div');
-                item.className = `option-item ${isSelected ? 'selected' : ''}`;
-                item.onclick = () => selectOption(optIdx);
-                item.innerHTML = `<span>${optText}</span>`;
-                optsBox.appendChild(item);
-            });
+ q.options.forEach((optText, optIdx) => {
+ const isSelected = userAnswers[index] === optIdx;
+ const item = document.createElement('div');
+ item.className = `option-item ${isSelected ? 'selected' : ''}`;
+ item.onclick = () => selectOption(optIdx);
+ item.innerHTML = `<span>${optText}</span>`;
+ optsBox.appendChild(item);
+ });
 
-            document.getElementById('btn-prev').disabled = index === 0;
-            document.getElementById('btn-next').disabled = index === questionsData.length - 1;
-            renderGrid();
-        }
+ document.getElementById('btn-prev').disabled = index === 0;
+ document.getElementById('btn-next').disabled = index === questionsData.length - 1;
+ renderGrid();
+ }
 
-        function selectOption(optIdx) {
-            userAnswers[currentIdx] = optIdx;
-            loadQuestion(currentIdx);
-        }
+ function selectOption(optIdx) {
+ userAnswers[currentIdx] = optIdx;
+ loadQuestion(currentIdx);
+ }
 
-        function prevQuestion() { if (currentIdx > 0) loadQuestion(currentIdx - 1); }
-        function nextQuestion() { if (currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1); }
+ function prevQuestion() { if (currentIdx > 0) loadQuestion(currentIdx - 1); }
+ function nextQuestion() { if (currentIdx < questionsData.length - 1) loadQuestion(currentIdx + 1); }
 
-        function calculateGrade(score) {
-            if (score >= 90) return "ممتاز جداً - عبقري الكيمياء 🌟";
-            if (score >= 80) return "جيد جداً مرتفع 👏";
-            if (score >= 70) return "جيد جداً 👍";
-            if (score >= 50) return "مقبول 🤏";
-            return "يحتاج إلى إعادة مراجعة الباب بقوة ⚠️";
-        }
+ function calculateGrade(score) {
+ if (score >= 90) return "ممتاز جداً - عبقري الكيمياء 🌟";
+ if (score >= 80) return "جيد جداً مرتفع 👏";
+ if (score >= 70) return "جيد جداً 👍";
+ if (score >= 50) return "مقبول 🤏";
+ return "يحتاج إلى إعادة مراجعة الباب بقوة ⚠️";
+ }
 
-        function submitExam() {
-            examStarted = false;
-            clearInterval(timerInterval);
+ function submitExam() {
+ examStarted = false;
+ clearInterval(timerInterval);
 
-            let score = 0;
-            let wrongListHTML = "";
-            let wrongQuestionsNum = [];
+ let score = 0;
+ let wrongListHTML = "";
+ let wrongQuestionsNum = [];
 
-            questionsData.forEach((q, idx) => {
-                const userAns = userAnswers[idx];
-                if (userAns === q.correct) {
-                    score++;
-                } else {
-                    wrongQuestionsNum.push(idx + 1);
-                    const userText = userAns !== null ? q.options[userAns] : "لم يُجب";
-                    const correctText = q.options[q.correct];
-                    wrongListHTML += `
-                        <div class="review-item">
-                            <div><b>س${idx + 1}:</b> ${q.text}</div>
-                            <div>إجابتك: <span class="user-ans">${userText}</span></div>
-                            <div>الإجابة الصحيحة: <span class="correct-ans">${correctText}</span></div>
-                        </div>`;
-                }
-            });
+ questionsData.forEach((q, idx) => {
+ const userAns = userAnswers[idx];
+ if (userAns === q.correct) {
+ score++;
+ } else {
+ wrongQuestionsNum.push(idx + 1);
+ const userText = userAns !== null ? q.options[userAns] : "لم يُجب";
+ const correctText = q.options[q.correct];
+ wrongListHTML += `
+ <div class="review-item">
+ <div><b>س${idx + 1}:</b> ${q.text}</div>
+ <div>إجابتك: <span class="user-ans">${userText}</span></div>
+ <div>الإجابة الصحيحة: <span class="correct-ans">${correctText}</span></div>
+ </div>`;
+ }
+ });
 
-            const timeSpentSec = (120 * 60) - timerSeconds;
-            const spentH = Math.floor(timeSpentSec / 3600);
-            const spentM = Math.floor((timeSpentSec % 3600) / 60);
-            const spentS = timeSpentSec % 60;
-            const gradeTitle = calculateGrade(score);
+ const timeSpentSec = (120 * 60) - timerSeconds;
+ const spentH = Math.floor(timeSpentSec / 3600);
+ const spentM = Math.floor((timeSpentSec % 3600) / 60);
+ const spentS = timeSpentSec % 60;
+ const gradeTitle = calculateGrade(score);
 
-            document.getElementById('cert-student-name').innerText = studentInfo.name;
-            document.getElementById('cert-score').innerText = score;
-            document.getElementById('cert-grade').innerText = gradeTitle;
-            document.getElementById('cert-date').innerText = new Date().toLocaleDateString('ar-EG');
+ document.getElementById('cert-student-name').innerText = studentInfo.name;
+ document.getElementById('cert-score').innerText = score;
+ document.getElementById('cert-grade').innerText = gradeTitle;
+ document.getElementById('cert-date').innerText = new Date().toLocaleDateString('ar-EG');
 
-            const revBox = document.getElementById('review-list');
-            if (wrongQuestionsNum.length === 0) {
-                revBox.innerHTML = `<div style="color:#34d399; text-align:center; font-weight:bold;">🎉 أبدعت! إجاباتك صحيحة 100% في الباب الأول بكفاءة اقتدار.</div>`;
-            } else {
-                revBox.innerHTML = wrongListHTML;
-            }
+ const revBox = document.getElementById('review-list');
+ if (wrongQuestionsNum.length === 0) {
+ revBox.innerHTML = `<div style="color:#34d399; text-align:center; font-weight:bold;">🎉 أبدعت! إجاباتك صحيحة 100% في الباب الأول بكفاءة اقتدار.</div>`;
+ } else {
+ revBox.innerHTML = wrongListHTML;
+ }
 
-            document.getElementById('exam-section').style.display = 'none';
-            document.getElementById('result-section').style.display = 'block';
+ document.getElementById('exam-section').style.display = 'none';
+ document.getElementById('result-section').style.display = 'block';
 
-            sendToEmail(studentInfo.name, studentInfo.code, score, spentH, spentM, spentS, gradeTitle, wrongQuestionsNum);
-        }
+ sendToEmail(studentInfo.name, studentInfo.code, score, spentH, spentM, spentS, gradeTitle, wrongQuestionsNum);
+ }
 
-        function sendToEmail(name, code, score, h, m, s, grade, wrongArr) {
-            let wrongText = wrongArr.length > 0 ? wrongArr.join(', ') : 'لا يوجد أخطاء 🎉';
-            fetch("https://formsubmit.co/ajax/aseer010moh@gmail.com", {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({
-                    _subject: `📊 نتيجة امتحان الباب الأول كيمياء (100 سؤال) - ${name}`,
-                    "اسم الطالب": name,
-                    "كود الطالب": code,
-                    "الدرجة النهائي": `${score} / 100`,
-                    "التقدير": grade,
-                    "الوقت المستغرق": `${h > 0 ? h + ' ساعة و ' : ''}${m} دقيقة و ${s} ثانية`,
-                    "أرقام الأسئلة الخاطئة": wrongText
-                })
-            })
-            .then(response => response.json())
-            .then(data => console.log("تم الإرسال بنجاح للإيميل!", data))
-            .catch(error => console.error("خطأ بالإرسال:", error));
-        }
-    </script>
+ function sendToEmail(name, code, score, h, m, s, grade, wrongArr) {
+ let wrongText = wrongArr.length > 0 ? wrongArr.join(', ') : 'لا يوجد أخطاء 🎉';
+ fetch("https://formsubmit.co/ajax/aseer010moh@gmail.com", {
+ method: "POST",
+ headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+ body: JSON.stringify({
+ _subject: `📊 نتيجة امتحان الباب الأول كيمياء (100 سؤال) - ${name}`,
+ "اسم الطالب": name,
+ "كود الطالب": code,
+ "الدرجة النهائي": `${score} / 100`,
+ "التقدير": grade,
+ "الوقت المستغرق": `${h > 0 ? h + ' ساعة و ' : ''}${m} دقيقة و ${s} ثانية`,
+ "أرقام الأسئلة الخاطئة": wrongText
+ })
+ })
+ .then(response => response.json())
+ .then(data => console.log("تم الإرسال بنجاح للإيميل!", data))
+ .catch(error => console.error("خطأ بالإرسال:", error));
+ }
+ </script>
 </body>
 </html>
